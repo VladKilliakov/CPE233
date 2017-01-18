@@ -1,0 +1,4 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/kilvl/Vivado/CPE233/Expirement 3 Program Counter/Expirement 3 Program Counter.srcs/sources_1/new/MUX.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity MUX
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/kilvl/Vivado/CPE233/Expirement 3 Program Counter/Expirement 3 Program Counter.srcs/sim_1/new/mux_sim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mux_sim
