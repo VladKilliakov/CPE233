@@ -39,20 +39,16 @@ architecture Behavioral of mux_sim is
     component MUX
     port (I0: in std_logic_vector(9 downto 0);
             I1: in std_logic_vector(9 downto 0);
-            I2: in std_logic_vector(9 downto 0);
-            I3: in std_logic_vector(9 downto 0);
             Sel: in std_logic_vector(1 downto 0);
             Output: out std_logic_vector(9 downto 0));
     end component;
 
-signal s_I0, s_I1, s_I2, s_I3, s_Output: std_logic_vector(9 downto 0);
+signal s_I0, s_I1, s_Output: std_logic_vector(9 downto 0);
 signal s_Sel: std_logic_vector(1 downto 0);
 
 begin
     UUT: MUX port map (I0 => s_I0,
                        I1 => s_I1,
-                       I2 => s_I2,
-                       I3 => s_I3,
                        Sel => s_Sel,
                        Output => s_Output);
 

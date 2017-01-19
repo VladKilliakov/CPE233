@@ -3,7 +3,7 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Jan 13 19:01:32 2017">
+<application name="pa" timeStamp="Wed Jan 18 17:07:36 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="890ae81a79ac43b5ac039938d4329419" type="ProjectID"/>
 <property name="ProjectIteration" value="1" type="ProjectIteration"/>
@@ -17,177 +17,149 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="7" type="JavaHandler"/>
-<property name="EditDelete" value="2" type="JavaHandler"/>
+<property name="AddSources" value="11" type="JavaHandler"/>
+<property name="EditDelete" value="4" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
-<property name="SimulationRestart" value="1" type="JavaHandler"/>
-<property name="SimulationRun" value="3" type="JavaHandler"/>
-<property name="SimulationRunForTime" value="2" type="JavaHandler"/>
-<property name="ToggleViewNavigator" value="2" type="JavaHandler"/>
+<property name="RunSynthesis" value="2" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="5" type="JavaHandler"/>
+<property name="SetTopNode" value="5" type="JavaHandler"/>
+<property name="ShowView" value="1" type="JavaHandler"/>
+<property name="SimulationClose" value="8" type="JavaHandler"/>
+<property name="SimulationRestart" value="19" type="JavaHandler"/>
+<property name="SimulationRun" value="19" type="JavaHandler"/>
+<property name="SimulationRunAll" value="8" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="17" type="JavaHandler"/>
+<property name="ToggleViewNavigator" value="9" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="FINISH, Finish" value="2" type="GuiResourceData"/>
-<property name="MUX.vhd, 103, 266" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 110, 298" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 113, 389" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 12, 98" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 122, 208" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 124, 258" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 124, 265" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 124, 320" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 125, 298" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 13, 282" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 147, 290" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 153, 402" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 159, 302" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 168, 302" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 175, 254" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 176, 336" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 177, 298" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 179, 330" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 179, 330, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 180, 318" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 180, 318, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 181, 297" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 181, 297, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 183, 284" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 185, 284" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 185, 284, false, false, false, false, true" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 190, 348" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 192, 353" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 199, 247" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 202, 350" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 204, 398" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 207, 419" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 208, 255" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 210, 315" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 215, 409" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 222, 340" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 227, 350" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 229, 350" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 245, 332" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 245, 334" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 246, 280" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 252, 408" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 259, 343" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 259, 344" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 261, 353" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 262, 350" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 266, 370" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 273, 348" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 276, 230" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 278, 360" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 284, 367" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 288, 351" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 288, 366" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 29, 249" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 29, 302" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 293, 365" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 298, 366" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 302, 352" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 308, 325" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 315, 163" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 325, 286" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 329, 335" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 339, 258" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 339, 368" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 34, 372" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 368, 293" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 370, 184" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 381, 222" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 389, 232" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 403, 294" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 406, 308" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 418, 300" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 426, 305" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 67, 143" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 77, 301" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 91, 265" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 93, 281" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 96, 148" value="1" type="GuiResourceData"/>
-<property name="MUX.vhd, 96, 250" value="1" type="GuiResourceData"/>
-<property name="NEXT, Next " value="2" type="GuiResourceData"/>
-<property name="PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, Add or create simulation sources" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 174, 403" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 175, 410" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 187, 416" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 189, 412" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 190, 417" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 192, 419" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 307, 412" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 314, 443" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 319, 392" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 453, 423" value="1" type="GuiResourceData"/>
+<property name="MUX.vhd, 659, 140" value="1" type="GuiResourceData"/>
 <property name="PAResourceAtoD.CmdMsgDialog_OK, OK" value="2" type="GuiResourceData"/>
-<property name="PAResourceAtoD.CreateSrcFileDialog_FILE_NAME, mux_sim" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_ADD_SOURCES, Add Sources..." value="1" type="GuiResourceData"/>
 <property name="PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, Hierarchy Update" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RESTART, simulation_live_restart" value="1" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="2" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="3" type="GuiResourceData"/>
-<property name="PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, MUX - Behavioral (MUX.vhd" value="5" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Program_counter - Behavioral (Program_counter.vhd" value="5" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Syntax Error Files], 1, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources], 0, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources], 0, true, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Non-module Files, mux_sim.vhd], 7, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Non-module Files, mux_sim.vhd], 7, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, Non-module Files], 6" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1, mux_sim - Behavioral (mux_sim.vhd" value="3" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources, sim_1], 5" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Simulation Sources], 4" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Project Manager, Add Sources], 2, false" value="2" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="4" type="GuiResourceData"/>
-<property name="PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, C:/Users/kilvl/Vivado/CPE233/Expirement 3 Program Counter/Expirement 3 Program Counter.xpr, 0" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_EDIT, Edit" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="4" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_FLOW, Flow" value="2" type="GuiResourceData"/>
-<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_PROJECT, Open Recent Project" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Analysis Results, sim_1, [HDL 9-806] Syntax error near :. [C:/Users/kilvl/Vivado/CPE233/Expirement 3 Program Counter/Expirement 3 Program Counter.srcs/sim_1/new/mux_sim.vhd:59]. ], 21, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Analysis Results, sim_1, [HDL 9-806] Syntax error near ;. [C:/Users/kilvl/Vivado/CPE233/Expirement 3 Program Counter/Expirement 3 Program Counter.srcs/sim_1/new/mux_sim.vhd:52]. ], 21, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PAViews_PROJECT_SUMMARY, Project Summary" value="1" type="GuiResourceData"/>
-<property name="PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, Flow Navigator" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.RemoveSourcesDialog_ALSO_DELETE, Also delete the project local file/directory from disk, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 50" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, ns, 3" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserPanel_CREATE_FILE, Create File" value="2" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserPanel_INCLUDE_ALL_DESIGN_SOURCES_FOR_SIMULATION, Include all design sources for simulation, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserPanel_INCLUDE_ALL_DESIGN_SOURCES_FOR_SIMULATION, Include all design sources for simulation, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SrcChooserTable_SRC_CHOOSER_TABLE, VHDLSourceFile_small ; 1 ; mux_sim.vhd ; xil_defaultlib ; Local to Project, 0, mux_sim.vhd, 2" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SET_AS_TOP, Set as Top" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RESTART, simulation_live_restart" value="18" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="15" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN_ALL, simulation_live_run_all" value="8" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="11" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_TCL_CONSOLE_WINDOW, Tcl Console" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String" value="4" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, Program_counter_top - Behavioral (Program_counter_top.vhd" value="5" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="11" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Synthesis, Run Synthesis], 17, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_WINDOW, Window" value="2" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="2" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PlanAheadTab_SHOW_FLOW_NAVIGATOR, Flow Navigator" value="4" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 100" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, 30" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationLiveRunForComp_SPECIFY_TIME_AND_UNITS, us, 2" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, I0[9:0] ; 01f ; Array, 0, I0[9:0], 0, true" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, I1[9:0] ; 3e0 ; Array, 1, I1[9:0], 0, true" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, MUX_part ; MUX(Behavioral" value="3" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, PC_part ; PC(Behavioral" value="8" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, UUT ; Program_counter_top(Behavioral" value="5" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, prog_rom_part ; prog_rom(low_level_definition" value="4" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, top_pc_sim ; top_pc_sim(Behavioral" value="2" type="GuiResourceData"/>
 <property name="PAResourceQtoS.SrcMenu_IP_HIERARCHY, IP Hierarchy" value="1" type="GuiResourceData"/>
+<property name="Program_counter_top.vhd, 363, 194" value="1" type="GuiResourceData"/>
+<property name="Program_counter_top.vhd, 395, 214" value="1" type="GuiResourceData"/>
 <property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_OK, OK" value="4" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 156, 199" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 239, 196" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 245, 200" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 256, 195" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 266, 200" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 268, 188" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 309, 224" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 638, 438" value="1" type="GuiResourceData"/>
-<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 1" value="1" type="GuiResourceData"/>
-<property name="RDIResourceCommand.RDICommands_DELETE, Remove File from Project..." value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 137, 332" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 140, 156" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 141, 245" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 151, 212" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 168, 366" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 176, 411" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 184, 365" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 185, 369" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 188, 277" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 192, 435" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 196, 202" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 196, 279" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 233, 398" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 233, 440" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 234, 383" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 236, 281" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 242, 162" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 250, 381" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 341, 351" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 385, 228" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 453, 175" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 47, 318" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 48, 306" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 502, 102" value="1" type="GuiResourceData"/>
-<property name="mux_sim.vhd, 83, 390" value="1" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_IN, Waveform Viewer_zoom_in" value="105" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_OUT, Waveform Viewer_zoom_out" value="3" type="GuiResourceData"/>
+<property name="RDIResource.ProgressDialog_CANCEL, Cancel" value="7" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 136" value="2" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 259" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 1, 259, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 12, 14" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 158, 278" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 166, 151" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 171, 112" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 175, 256" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 180, 220" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 187, 203" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 187, 210" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 195, 149" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 210, 230" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 229, 139" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 235, 230" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 237, 267" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 285, 332" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 289, 243" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 3, 184" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 367, 212" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 390, 374" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 439, 323" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 440, 272" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 471, 317" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 487, 430" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 494, 199" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 515, 235" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 6, 235" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 65, 140" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 88, 121" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 9, 139" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 90, 281" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 90, 281, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 6" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 8" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, ADDRESS[9:0]], 5" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, ADDRESS[9:0]], 5, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, ADDRESS[9:0]], 8, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, CLK], 7, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, D_IN[9:0]], 14, true" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, D_IN[9:0]], 5" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, D_IN[9:0]], 5, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, I0[9:0]], 5, true, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, I1[9:0]], 6, true, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, Output[9:0]], 8, true, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, PC_COUNT[9:0]], 16, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, PC_COUNT[9:0]], 6, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, PC_COUNT[9:0]], 7" value="2" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, PC_INC], 6, false, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, PC_LD], 5, false, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, RST], 4, false, false, true, false, false, false" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, Sel[1:0]], 7, true" value="1" type="GuiResourceData"/>
+<property name="RDIResource.WaveformNameTree_WAVEFORM_NAME_TREE, [true, s_from_stack[9:0]], 5" value="2" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 105, 217" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 122, 263" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 122, 77" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 123, 129" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 125, 106" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 127, 403" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 129, 144" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 131, 381" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 16, 59" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 174, 164" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 241, 179" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 244, 263" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 251, 78" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 264, 353" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 265, 180" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 265, 366" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 277, 57" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 280, 300" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 280, 300, false, false, false, false, true" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 283, 297" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 286, 261" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 286, 350" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 297, 300" value="3" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 297, 300, false, false, false, false, true" value="2" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 312, 294" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 350, 168" value="1" type="GuiResourceData"/>
+<property name="top_pc_sim.vhd, 4, 180" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
-<property name="GuiMode" value="33" type="GuiMode"/>
+<property name="GuiMode" value="34" type="GuiMode"/>
 <property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="30" type="TclMode"/>
+<property name="TclMode" value="31" type="TclMode"/>
 </item>
 </section>
 </application>

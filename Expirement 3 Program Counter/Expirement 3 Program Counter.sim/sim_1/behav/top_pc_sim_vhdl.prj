@@ -1,0 +1,9 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  "../../../Expirement 3 Program Counter.srcs/sources_1/imports/CPE233/PC.vhd"
+vhdl xil_defaultlib  "../../../Expirement 3 Program Counter.srcs/sources_1/new/MUX.vhd"
+vhdl xil_defaultlib  "../../../Expirement 3 Program Counter.srcs/sources_1/imports/CPE233/prog_rom.vhd"
+vhdl xil_defaultlib  "../../../Expirement 3 Program Counter.srcs/sources_1/new/Program_counter_top.vhd"
+vhdl xil_defaultlib  "../../../Expirement 3 Program Counter.srcs/sim_1/new/top_pc_sim.vhd"
+
+# Do not sort compile order
+nosort

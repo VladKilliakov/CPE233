@@ -34,22 +34,20 @@ use IEEE.NUMERIC_STD.ALL;
 entity MUX is
   port (I0: in std_logic_vector(9 downto 0);
         I1: in std_logic_vector(9 downto 0);
-        I2: in std_logic_vector(9 downto 0);
-        I3: in std_logic_vector(9 downto 0);
         Sel: in std_logic_vector(1 downto 0);
         Output: out std_logic_vector(9 downto 0));
 end MUX;
 
 architecture Behavioral of MUX is
     begin 
-    process(Sel)
+    process(Sel,I0,I1)
         begin
         case Sel is
             when "00" => Output <= I0;
             when "01" => Output <= I1;
             when "10" => Output <= "1111111111";
             when "11" => Output <= "0000000000";
-            when others => report "unreachable" severity failure;
+            when others => Output <= "0000000000";
         end case;  
     end process;
 end Behavioral;
