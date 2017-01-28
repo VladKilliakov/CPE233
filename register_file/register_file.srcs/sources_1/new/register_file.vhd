@@ -46,8 +46,6 @@ begin
         if rf_wr = '1' then
             reg(to_integer(unsigned(adrx))) <= rf_wr_data;
         end if;
-        
-        report "here" severity note;
     end if;
  end process;
 

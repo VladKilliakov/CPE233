@@ -48,7 +48,7 @@ begin
                                  rf_wr => s_rf_wr,
                                  clk => s_clk,
                                  dx_out => s_dx_out,
-                                 dy_out => s_dx_out);
+                                 dy_out => s_dy_out);
                                  
 process begin
     s_clk <= not s_clk;
@@ -62,44 +62,44 @@ process begin
     s_adrx <= "00000";
     s_adry <= "00001";
     s_rf_wr_data <= x"10";
-    wait for 10 ns;
+    wait for 20 ns;
     
     s_adrx <= "00001";
     s_adry <= "00010";
     s_rf_wr_data <= x"20";
-    wait for 10 ns;
+    wait for 20 ns;
     
     s_adrx <= "00010";
     s_adry <= "00011";
     s_rf_wr_data <= x"30";
-    wait for 10 ns;
+    wait for 20 ns;
     
     s_adrx <= "00011";
     s_adry <= "00100";
     s_rf_wr_data <= x"40";
-    wait for 10 ns;
+    wait for 20 ns;
     
  -- Reading data from registers  
     s_rf_wr <= '0';
     s_adrx <= "00000";
     s_adry <= "00001";
     s_rf_wr_data <= x"10";
-    wait for 10 ns;
+    wait for 20 ns;
     
     s_adrx <= "00001";
     s_adry <= "00010";
     s_rf_wr_data <= x"20";
-    wait for 10 ns;
+    wait for 20 ns;
     
     s_adrx <= "00010";
     s_adry <= "00011";
     s_rf_wr_data <= x"30";
-    wait for 10 ns;
+    wait for 20 ns;
     
     s_adrx <= "00011";
     s_adry <= "00100";
     s_rf_wr_data <= x"40";
-    wait for 10 ns;
+    wait for 20 ns;
 
     wait;
 end process;                                 
