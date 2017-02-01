@@ -1,0 +1,91 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+
+-- Uncomment the following library declaration if using
+-- arithmetic functions with Signed or Unsigned values
+use IEEE.NUMERIC_STD.ALL;
+
+-- Uncomment the following library declaration if instantiating
+-- any Xilinx leaf cells in this code.
+--library UNISIM;
+--use UNISIM.VComponents.all;
+
+entity ALU is
+    Port ( A : in STD_LOGIC_VECTOR (7 downto 0);
+           B : in STD_LOGIC_VECTOR (7 downto 0);
+           SEL : in STD_LOGIC_VECTOR (3 downto 0);
+           Cin : in STD_LOGIC;
+           C : out STD_LOGIC;
+           Z : out STD_LOGIC;
+           Result : out STD_LOGIC_VECTOR (7 downto 0));
+end ALU;
+
+architecture Behavioral of ALU is
+
+begin
+    Result <= "00000000"; 
+    process(SEL) 
+    variable temp : std_logic_vector(8 downto 0);
+    variable holder : std_logic_vector(1 downto 0);
+    begin   
+       case SEL is
+            when "0000" => 
+                    temp := std_logic_vector(unsigned(A) + unsigned(B));
+                    Result <= temp(7 downto 0);
+            when "0001" =>
+                    holder := holder & Cin;
+                    temp := std_logic_vector(unsigned(A) + unsigned(B) + unsigned(holder));
+                    Result <= temp(7 downto 0);
+           when "0010" =>
+                    temp := std_logic_vector(unsigned(A) - unsigned(B));
+                    Result <= temp(7 downto 0);
+           when "0011" =>
+                    holder := holder & Cin;
+                    temp := std_logic_vector(unsigned(A) - unsigned(B) - unsigned(holder));
+                    Result <= temp(7 downto 0);
+           when "0100" =>
+                    temp := std_logic_vector(unsigned(A) - unsigned(B));
+                    Result <= temp(7 downto 0);
+          when  "0101" =>
+                    temp:= A and B;
+                    Result <= temp(7 downto 0);
+          when "0110" =>
+                    temp:= A or B;
+                    Result <= temp(7 downto 0);
+          when "0111" =>
+                    temp:= A XOR B;
+                    Result <= temp(7 downto 0);               
+          when "1000" =>
+                    temp:= A and B;
+                    Result <= temp(7 downto 0);             
+          when "1001" =>
+                    temp := A & Cin;
+                    Result <= temp(7 downto 0);
+          when "1010" =>
+                    temp := Cin & A;
+                    temp := temp(0) & temp;
+                    Result <= temp(8 downto 1);
+          when "1011" =>
+                    temp := A & A(7);
+                    Result <= temp(7 downto 0);
+          when "1100" =>
+                   temp := A(0) & A;
+                   temp := temp(0) & temp;
+                   Result <= temp(8 downto 1);
+          when "1101" =>
+                   temp := A(7) & A;
+                   temp := temp(0) & temp;
+                   Result <= temp(8 downto 1);
+          when "1110" =>
+                   Result <= A;
+          when others => Result <= "00000000";
+          end case;
+          C <= temp(8);
+          if temp(7 downto 0) = "00000000" then
+             Z <= '1';
+          else
+             Z <= '0';
+          end if; 
+      end process;
+                                                                        
+end Behavioral;
