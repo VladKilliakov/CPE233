@@ -42,6 +42,7 @@ signal ps, ns: state_type;
 signal op_code_7: std_logic_vector(6 downto 0);
 
 begin
+op_code_7 <= opcode_hi_5 & opcode_lo_2;
 state_p: process(clk, reset) begin
             if (reset = '1') then
                 ps <= st_init;
@@ -50,7 +51,7 @@ state_p: process(clk, reset) begin
             end if;
          end process state_p;
             
-comb_p: process(ps, op_code_7) begin
+comb_p: process(ps, op_code_7, z_flag, c_flag) begin
         I_SET <= '0';
         I_CLR <= '0';
         PC_LD <= '0';
@@ -189,7 +190,7 @@ comb_p: process(ps, op_code_7) begin
                     when "0001011" =>
                     
                     -- AND function (reg-immed form)
-                    when ("1000000" or "1000001" or "1000010" or "1000011") =>
+                    when "1000000" |"1000001" | "1000010" | "1000011" =>
                         FLG_C_CLR <= '1';
                         FLG_Z_LD <= '1';
                         rf_wr <= '1'; 
@@ -199,7 +200,7 @@ comb_p: process(ps, op_code_7) begin
                         
                     
                     -- OR function (reg-immed form)
-                    when ("1000100" or "1000101" or "1000110" or "1000111") =>
+                    when "1000100" | "1000101" | "1000110" | "1000111" =>
                         rf_wr <= '1'; 
                         rf_wr_sel <= "00";  
                         alu_sel <= "0110";
@@ -208,7 +209,7 @@ comb_p: process(ps, op_code_7) begin
                         FLG_Z_LD <= '1';
                                                                   
                     -- EXOR function (reg-immed form)
-                    when ("1001000" or "1001001" or "1001010" or "1001011") =>
+                    when "1001000" | "1001001" | "1001010" | "1001011" =>
                         rf_wr <= '1'; 
                         rf_wr_sel <= "00";  
                         alu_sel <= "0111";
@@ -217,7 +218,7 @@ comb_p: process(ps, op_code_7) begin
                         FLG_Z_LD <= '1';
                                             
                     -- TEST funtion (reg-immed form)
-                    when ("1001100" or "1001101" or "1001110" or "1001111") =>
+                    when "1001100" | "1001101" | "1001110" | "1001111" =>
                         FLG_C_CLR <= '1';
                         rf_wr <= '0'; 
                         rf_wr_sel <= "00";
@@ -225,7 +226,7 @@ comb_p: process(ps, op_code_7) begin
                         alu_opy_sel <= '1';
                     
                     -- ADD function (reg-immed form)
-                    when ("1010000" or "1010001" or "1010010" or "1010011") =>
+                    when "1010000" | "1010001" | "1010010" | "1010011" =>
                         rf_wr <= '1';
                         rf_wr_sel <= "00";
                         alu_sel <= "0000";
@@ -235,7 +236,7 @@ comb_p: process(ps, op_code_7) begin
                         flg_c_clr <= '1'; 
                                             
                     -- ADDC function (reg_immed form)
-                    when ("1010100" or "1010101" or "1010110" or "1010111") =>
+                    when "1010100" | "1010101" | "1010110" | "1010111" =>
                         rf_wr <= '1';
                         rf_wr_sel <= "00";
                         alu_sel <= "0001";
@@ -245,7 +246,7 @@ comb_p: process(ps, op_code_7) begin
                         flg_c_clr <= '1';       
                                             
                     -- SUB function (reg-immed form)
-                    when ("1011000" or "1010101" or "1010110" or "1010111") =>
+                    when "1011000" | "1011001" | "1011010" | "1011011" =>
                         rf_wr <= '1';
                         rf_wr_sel <= "00";
                         alu_sel <= "0010";
@@ -255,7 +256,7 @@ comb_p: process(ps, op_code_7) begin
                         flg_c_clr <= '1';                          
                     
                     -- SUBC function (reg-immed form)
-                    when ("1011100" or "1011101" or "1011110" or "1011111") =>
+                    when "1011100" | "1011101" | "1011110" | "1011111" =>
                         rf_wr <= '1';
                         rf_wr_sel <= "00";
                         alu_sel <= "0011";
@@ -265,7 +266,7 @@ comb_p: process(ps, op_code_7) begin
                         flg_c_clr <= '1';  
                                             
                     -- CMP function (reg-immed form)
-                    when ("1100000" or "1100001" or "1100010" or "1100011") =>
+                    when "1100000" | "1100001" | "1100010" | "1100011" =>
                         rf_wr <= '0';
                         rf_wr_sel <= "00";
                         alu_sel <= "0100";
@@ -275,18 +276,18 @@ comb_p: process(ps, op_code_7) begin
                         flg_c_clr <= '1';  
                                             
                     -- IN function (reg-immed form)
-                    when ("1100100" or "1100101" or "1100110" or "1100111") =>
+                    when "1100100" | "1100101" | "1100110" | "1100111" =>
                         rf_wr <= '1';
                         rf_wr_sel <= "11";
                         
                     -- OUT funtction (reg-immed form)
-                    when ("1101000" or "1101001" or "1101010" or "1101011") =>
+                    when "1101000" | "1101001" | "1101010" | "1101011" =>
                         rf_wr <= '0';
                         rf_wr_sel <= "00";
                         io_strb <= '1';
                         
                     -- MOV function (reg-immed form)
-                    when ("1101100" or "1101101" or "1101110" or "1101111") =>
+                    when "1101100" | "1101101" | "1101110" | "1101111" =>
                         rf_wr <= '1';
                         rf_wr_sel <= "00";
                         alu_sel <= "1110";
@@ -294,14 +295,14 @@ comb_p: process(ps, op_code_7) begin
                         
                         
                     -- LD function (reg_immed form)
-                    when ("1110000" or "1110001" or "1110010" or "1110011") =>
+                    when "1110000" | "1110001" | "1110010" | "1110011" =>
                         rf_wr <= '1';
                         rf_wr_sel <= "01";
                         scr_addr_sel <= "01";
                         
                     
                     -- ST function (reg_immed form)
-                    when ("1110100" or "1110101" or "1110110" or "1110111") =>
+                    when "1110100" | "1110101" | "1110110" | "1110111" =>
                     
                     -- BRN function
                     when "0010000" =>
@@ -313,19 +314,31 @@ comb_p: process(ps, op_code_7) begin
                     
                     -- BREQ function 
                     when "0010010" =>
+                        if Z_FLAG = '1' then
                         pc_ld <= '1';
-                        pc_mux_sel <= "00";                    
+                        pc_mux_sel <= "00"; 
+                        end if;                   
                     
                     -- BRNE function 
                     when "0010011" =>
+                        if Z_FLAG = '0' then
                         pc_ld <= '1';
-                        pc_mux_sel <= "00";   
+                        pc_mux_sel <= "00"; 
+                        end if;  
                     
                     -- BRCS function 
                     when "0010100" =>
-                    
+                        if C_FLAG = '1' then
+                        pc_ld <= '1';
+                        pc_mux_sel <= "00";
+                        end if;
+                        
                     -- BRCC function
                     when "0010101" =>
+                        if C_FLAG = '1' then
+                        pc_ld <= '1';
+                        pc_mux_sel <= "00";
+                        end if; 
                     
                     -- LSL function 
                     when "0100000" =>

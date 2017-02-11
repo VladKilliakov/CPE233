@@ -1,0 +1,4 @@
+Running: xsim.dir/mcu_sim_behav/xsimk.exe -simmode gui -wdb mcu_sim_behav.wdb -simrunnum 0 -socket 53896
+Design successfully loaded
+Design Loading Memory Usage: 8740 KB (Peak: 8740 KB)
+Design Loading CPU Usage: 77 ms

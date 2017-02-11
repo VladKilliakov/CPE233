@@ -119,7 +119,7 @@ port map( i_set => s_i_set,
           scr_addr_sel => s_scr_addr_sel,
           scr_data_sel => s_scr_data_sel,
           rst => s_rst,
-          io_strb => s_io_strb,
+          io_strb => io_strb,
           c_flag => s_c_flag,
           z_flag => s_z_flag,
           int => int,
@@ -156,9 +156,7 @@ port map (top_rst => s_rst,
           top_clk => clk,
           instr => s_instruction);
 
--- Register file MUX  
-
-process(in_port, s_rf_wr_sel)
+register_file_mux: process(in_port, s_rf_wr_sel, s_result)
           begin
           case s_rf_wr_sel is
             when "00" => s_din <= s_result;
@@ -167,16 +165,18 @@ process(in_port, s_rf_wr_sel)
             when "11" => s_din <= in_port;
             when others => s_din <= "00000000"; 
           end case; 
-          end process;        
+          end process register_file_mux;        
 
--- ALU MUX           
-process(s_dy_out, s_instruction, s_alu_opy_sel)
+alu_mux: process(s_dy_out, s_instruction, s_alu_opy_sel)
             begin 
             case s_alu_opy_sel is
                 when '0' => s_b <= s_dy_out;
                 when '1' => s_b <= s_instruction(7 downto 0);
-                when others => s_din <= "00000000"; 
+                when others => s_b <= "00000000"; 
             end case; 
             end process; 
-                
+
+out_port <= s_dx_out;
+port_id <= s_instruction(7 downto 0);
+               
 end Behavioral;

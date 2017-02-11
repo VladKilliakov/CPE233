@@ -43,7 +43,7 @@ architecture Behavioral of RAT_wrapper is
               PORT_ID  : out STD_LOGIC_VECTOR (7 downto 0);
               IO_STRB  : out STD_LOGIC;
               RESET    : in  STD_LOGIC;
-              INT_IN   : in  STD_LOGIC;
+              INT   : in  STD_LOGIC;
               CLK      : in  STD_LOGIC);
    end component RAT_CPU;
    -------------------------------------------------------------------------------
@@ -79,7 +79,7 @@ begin
               PORT_ID  => s_port_id,
               RESET    => RST,
               IO_STRB  => s_load,
-              INT_IN   => '0',  -- s_interrupt
+              INT   => '0',  -- s_interrupt
               CLK      => s_clk_sig);
    -------------------------------------------------------------------------------
 
