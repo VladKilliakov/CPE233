@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Fri Feb 10 19:19:30 2017">
+<application name="pa" timeStamp="Fri Feb 10 23:11:43 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="5e68b83f83924c08a50772cd4d76721e" type="ProjectID"/>
-<property name="ProjectIteration" value="1" type="ProjectIteration"/>
+<property name="ProjectIteration" value="5" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,41 +17,54 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="18" type="JavaHandler"/>
+<property name="AddSources" value="19" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="2" type="JavaHandler"/>
 <property name="EditDelete" value="7" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="4" type="JavaHandler"/>
 <property name="NewProject" value="1" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="4" type="JavaHandler"/>
+<property name="OpenRecentTarget" value="1" type="JavaHandler"/>
+<property name="ProjectSettingsCmdHandler" value="1" type="JavaHandler"/>
+<property name="RunBitgen" value="4" type="JavaHandler"/>
 <property name="RunSynthesis" value="8" type="JavaHandler"/>
 <property name="SaveFileProxyHandler" value="6" type="JavaHandler"/>
 <property name="SetTopNode" value="2" type="JavaHandler"/>
-<property name="ShowView" value="5" type="JavaHandler"/>
-<property name="ToggleViewNavigator" value="1" type="JavaHandler"/>
+<property name="ShowView" value="9" type="JavaHandler"/>
+<property name="SimulationClose" value="20" type="JavaHandler"/>
+<property name="SimulationRestart" value="51" type="JavaHandler"/>
+<property name="SimulationRun" value="23" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="51" type="JavaHandler"/>
+<property name="ToggleViewNavigator" value="22" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
 </item>
 <item name="Gui Resources Info">
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Synthesis, Run Synthesis], 17, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Synth 8-3848] Net out_port in module/entity rat_cpu does not have driver. [C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/rat_cpu.vhd:10]. ], 4, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Synth 8-614] signal 'Z_FLAG' is read in the process but is not in the sensitivity list [C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/control_unit.vhd:54]. , [Synth 8-614] signal 's_result' is read in the process but is not in the sensitivity list [C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/rat_cpu.vhd:159]. ], 3, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Synth 8-614] signal 'Z_FLAG' is read in the process but is not in the sensitivity list [C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/control_unit.vhd:54]. ], 1" value="1" type="GuiResourceData"/>
-<property name="PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, [, Synthesis, [Synth 8-614] signal 'Z_FLAG' is read in the process but is not in the sensitivity list [C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/control_unit.vhd:54]. ], 1, true" value="1" type="GuiResourceData"/>
-<property name="PAResourceQtoS.SaveProjectUtils_SAVE, Save" value="1" type="GuiResourceData"/>
-<property name="RDIResource.BaseDialog_CANCEL, Cancel" value="1" type="GuiResourceData"/>
-<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, io_strb" value="1" type="GuiResourceData"/>
-<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, port_id" value="1" type="GuiResourceData"/>
-<property name="control_unit.vhd, 201, 94" value="1" type="GuiResourceData"/>
-<property name="control_unit.vhd, 257, 98" value="1" type="GuiResourceData"/>
-<property name="control_unit.vhd, 277, 113" value="1" type="GuiResourceData"/>
-<property name="control_unit.vhd, 277, 176" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 1, 315" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 101, 314" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 107, 148" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 162, 112" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 172, 299" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 203, 352" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 27, 315" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 297, 308" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 299, 292" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 329, 110" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 71, 344" value="1" type="GuiResourceData"/>
-<property name="rat_cpu.vhd, 75, 191" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_OPEN_HARDWARE_MANAGER, Open Hardware Manager" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RESTART, simulation_live_restart" value="2" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_LIVE_RUN, simulation_live_run_for_time" value="2" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, Run Behavioral Simulation" value="1" type="GuiResourceData"/>
+<property name="PAResourceCommand.PACommandNames_TOGGLE_VIEW_NAV, (String" value="1" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, [root, Design Sources, RAT_wrapper - Behavioral (rat_wrapper.vhd" value="2" type="GuiResourceData"/>
+<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="1" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_FILE, File" value="2" type="GuiResourceData"/>
+<property name="PAResourceItoN.MainMenuMgr_OPEN_RECENT_FILE, Open Recent File" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.PAViews_CODE, Code" value="3" type="GuiResourceData"/>
+<property name="PAResourceOtoP.ProgramDebugTab_PROGRAM_DEVICE, Program device" value="1" type="GuiResourceData"/>
+<property name="PAResourceOtoP.ProgramFpgaDialog_PROGRAM, Program" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationObjectsPanel_SIMULATION_OBJECTS_TREE_TABLE, IO_STRB ; 0 ; Logic, 11, IO_STRB, 0, false" value="2" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, CPU ; rat_cpu(Behavioral" value="5" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, UUT ; RAT_wrapper(Behavioral" value="3" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, control_unit_part ; control_unit(Behavioral" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, mcu_sim ; mcu_sim(Behavioral" value="1" type="GuiResourceData"/>
+<property name="PAResourceQtoS.SimulationScopesPanel_SIMULATION_SCOPES_TREE_TABLE, program_counter_part ; Program_counter_top(Behavioral" value="2" type="GuiResourceData"/>
+<property name="PAResourceTtoZ.TaskBanner_CLOSE, (String" value="2" type="GuiResourceData"/>
+<property name="RDIResource.BaseDialog_OK, OK" value="3" type="GuiResourceData"/>
+<property name="RDIResource.GraphicalView_ZOOM_IN, Waveform Viewer_zoom_in" value="3" type="GuiResourceData"/>
+<property name="RDIResource.HCodeEditor_SEARCH_TEXT_COMBO_BOX, io_str" value="6" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 329, 266" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 553, 337" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, 557, 288" value="1" type="GuiResourceData"/>
+<property name="RDIResource.RDIViews_WAVEFORM_VIEWER, Untitled 21*" value="1" type="GuiResourceData"/>
+<property name="control_unit.vhd, 397, 204" value="1" type="GuiResourceData"/>
 </item>
 <item name="Other">
 <property name="GuiMode" value="44" type="GuiMode"/>

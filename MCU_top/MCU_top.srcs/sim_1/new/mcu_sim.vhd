@@ -35,6 +35,22 @@ begin
         wait for 400 ns;
         
         s_switches <= "00000011";
+        wait for 200 ns;
+        s_rst <= '1';
+        wait for 10 ns;
+                               
+        s_rst <= '0';
+        s_switches <= "00000100";
+        wait for 400 ns;
+        
+        s_switches <= "00001011";
+        wait for 400 ns;
+        
+        s_rst <= '0';
+        s_switches <= "00000111";
+        wait for 400 ns;
+        
+        s_switches <= "00000011";
         wait for 400 ns;
                                
         s_switches <= "00000100";
@@ -45,4 +61,5 @@ begin
         
         wait;
     end process;
+    
 end Behavioral;
