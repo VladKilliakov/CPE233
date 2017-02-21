@@ -29,6 +29,9 @@ Compiling architecture ramb18e1_v of entity unisim.RAMB18E1 [\RAMB18E1(initp_00=
 Compiling architecture ramb16_s18_v of entity unisim.RAMB16_S18 [\RAMB16_S18(initp_00="0000000000...]
 Compiling architecture low_level_definition of entity xil_defaultlib.prog_rom [prog_rom_default]
 Compiling architecture behavioral of entity xil_defaultlib.Program_counter_top [program_counter_top_default]
+Compiling architecture behavioral of entity xil_defaultlib.flags [flags_default]
+Compiling architecture behavioral of entity xil_defaultlib.stack_pointer [stack_pointer_default]
+Compiling architecture behavioral of entity xil_defaultlib.Scratch_RAM [scratch_ram_default]
 Compiling architecture behavioral of entity xil_defaultlib.rat_cpu [rat_cpu_default]
 Compiling architecture behavioral of entity xil_defaultlib.RAT_wrapper [rat_wrapper_default]
 Compiling architecture behavioral of entity xil_defaultlib.mcu_sim

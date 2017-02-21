@@ -27,58 +27,74 @@ begin
     variable temp : std_logic_vector(8 downto 0);
     begin   
        case SEL is
+            -- ADD
             when "0000" => 
                     temp := std_logic_vector(a_ext + b_ext);
-                    Result <= temp(7 downto 0);
+                  
+            -- ADDC         
             when "0001" =>
                     temp := std_logic_vector(a_ext + b_ext + c_ext);
-                    Result <= temp(7 downto 0);
+                    
+           -- SUB         
            when "0010" =>
                     temp := std_logic_vector(a_ext - b_ext);
-                    Result <= temp(7 downto 0);
+                    
+           -- SUBC          
            when "0011" =>
                     temp := std_logic_vector(a_ext - b_ext - c_ext);
-                    Result <= temp(7 downto 0);
+                    
+           -- CMP         
            when "0100" =>
                     temp := std_logic_vector(a_ext - b_ext);
-                    Result <= x"00";
+                    
+          -- AND           
           when  "0101" =>
                     temp:= '0' & (A and B);
-                    Result <= temp(7 downto 0);
+                    
+          -- OR           
           when "0110" =>
                     temp:= '0' & (A or B);
-                    Result <= temp(7 downto 0);
+                    
+          -- EXOR          
           when "0111" =>
                     temp:= '0' & (A XOR B);
-                    Result <= temp(7 downto 0);               
+                    
+          -- TEST          
           when "1000" =>
                     temp:= '0' & (A and B);
-                    Result <= temp(7 downto 0);             
+                    
+          -- LSL          
           when "1001" =>
                     temp := A & Cin;
-                    Result <= temp(7 downto 0);
+                    
+          -- LSR          
           when "1010" =>
-                    temp := Cin & A;
-                    Result <= temp(8 downto 1);
-                    temp := temp(0) & temp(8 downto 1);
+                    temp := A(0) & Cin & A(7 downto 1);
+                    
+          -- ROL          
           when "1011" =>
-                    temp := A & A(7);
-                    Result <= temp(7 downto 0);
-                    temp := temp(0) & temp(8 downto 1);
+                    temp := A(7) & A(6 downto 0) & A(7);
+                    
+          -- ROR          
           when "1100" =>
-                   temp := A(0) & A;
-                   Result <= temp(8 downto 1);
-                   temp := temp(0) & temp(8 downto 1);
+                   temp := A(0) & A(0) & A(7 downto 1);
+                   
+          -- ASR         
           when "1101" =>
-                   temp := A(7) & A;
-                   Result <= temp(8 downto 1);
-                   temp := temp(0) & temp(8 downto 1);
+                   temp := A(0) & A(7) & A(7 downto 1);
+                   
+          -- MOV         
           when "1110" =>
                    temp := Cin & B;
-                   Result <= B;
-          when others => Result <= "00000000";
+                   
+          when others => 
+                   temp := "000000000";
+                   Result <= "00000000";
           end case;
+          
           C <= temp(8);
+          Result <= temp(7 downto 0);
+          
           if temp(7 downto 0) = "00000000" then
              Z <= '1';
           else

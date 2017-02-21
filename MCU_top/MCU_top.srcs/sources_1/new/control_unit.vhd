@@ -188,7 +188,11 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                     
                     -- ST function 
                     when "0001011" =>
-                    
+                        scr_data_sel <= '0';
+                        scr_we <= '1';
+                        scr_addr_sel <= "00";
+                        rf_wr <= '0';
+                        
                     -- AND function (reg-immed form)
                     when "1000000" |"1000001" | "1000010" | "1000011" =>
                         FLG_C_CLR <= '1';
@@ -300,25 +304,33 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                         rf_wr_sel <= "01";
                         scr_addr_sel <= "01";
                         
-                    
                     -- ST function (reg_immed form)
                     when "1110100" | "1110101" | "1110110" | "1110111" =>
-                    
+                        scr_data_sel <= '0';
+                        scr_we <= '1';
+                        scr_addr_sel <= "01";
+                        rf_wr <= '0';
+                        
                     -- BRN function
                     when "0010000" =>
                         pc_ld <= '1';
                         pc_mux_sel <= "00";
                         
                     -- CALL function
-                    when "0010001" =>
+                    when "0010001" => 
+                        pc_mux_sel <= "00";
+                        sp_decr <= '1';
+                        scr_data_sel <= '1';
+                        scr_addr_sel <= "11";
+                        scr_we <= '1';    
                     
                     -- BREQ function 
                     when "0010010" =>
                         if Z_FLAG = '1' then
                         pc_ld <= '1';
                         pc_mux_sel <= "00"; 
-                        end if;                   
-                    
+                        end if;
+                                   
                     -- BRNE function 
                     when "0010011" =>
                         if Z_FLAG = '0' then
@@ -338,8 +350,8 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                         if C_FLAG = '1' then
                         pc_ld <= '1';
                         pc_mux_sel <= "00";
-                        end if; 
-                    
+                        end if;  
+                                          
                     -- LSL function 
                     when "0100000" =>
                         rf_wr <= '1';
@@ -349,7 +361,6 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                         flg_z_ld <= '1';
                         flg_c_ld <= '1';  
                 
-                    
                     -- LSR functon 
                     when "0100001" =>
                         rf_wr <= '1';
@@ -386,17 +397,56 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                     
                     -- PUSH function 
                     when "0100101" =>
+                        rf_wr <= '0';
+                        scr_we <= '1';
+                        scr_data_sel <= '0';
+                        sp_decr <= '1';
                     
                     -- POP function
                     when "0100110" =>
+                        rf_wr_sel <= "01";
+                        rf_wr <= '1';
+                        scr_we <= '0';
+                        scr_addr_sel <= "10";
+                        sp_incr <= '1';
                     
                     -- WSP function
                     when "0101000" =>
-                    
+                        sp_ld <= '1';
+                        rf_wr <= '0';
+                        
                     -- RSP function
                     when "0101001" =>
+                        rf_wr_sel <= "10";
+                        rf_wr <= '1';
                    
-                       
+                    -- CLC function
+                    when "0110000" =>
+                        flg_c_clr <= '1';
+                        
+                    -- SEC function
+                    when "0110001" =>
+                        flg_c_set <= '1';
+                    
+                    -- RET function
+                    when "0110010" =>
+                        pc_mux_sel <= "01";
+                        pc_ld <= '1';
+                        sp_incr <= '1';
+                        scr_addr_sel <= "10";
+                    
+                    -- SEI function
+                    when "0110100" =>
+                    
+                    -- CLI function
+                    when "0110101" =>
+                    
+                    -- RETID function
+                    when "0110110" =>
+                    
+                    -- RETIE function
+                    when "0110111" =>    
+                        
                     when others => 
                 end case;
         when others => NS <= ST_init;

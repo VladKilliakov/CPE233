@@ -31,6 +31,7 @@ entity Program_counter_top is
           TOP_RST, TOP_PC_LD, TOP_PC_INC, top_clk: in std_logic;
           FROM_STACK: in std_logic_vector(9 downto 0);
           FROM_IMMED: in std_logic_vector(9 downto 0);
+          PC_COUNT_INSIDE: out std_logic_vector(9 downto 0);
           INSTR: out std_logic_vector(17 downto 0));       
 end Program_counter_top;
 
@@ -61,6 +62,6 @@ begin
     PC_part: PC port map(rst => top_rst, pc_ld => top_pc_ld, pc_inc => top_pc_inc, d_in => s_d_in, clk => top_clk, 
         pc_count => s_pc_count);
     prog_rom_part: prog_rom port map(address => s_pc_count, clk => top_clk, instruction => instr);
-    
+    pc_count_inside <= s_pc_count;
 
 end Behavioral;
