@@ -319,6 +319,7 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                     -- CALL function
                     when "0010001" => 
                         pc_mux_sel <= "00";
+                        pc_ld <= '1';
                         sp_decr <= '1';
                         scr_data_sel <= '1';
                         scr_addr_sel <= "11";
@@ -347,7 +348,7 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                         
                     -- BRCC function
                     when "0010101" =>
-                        if C_FLAG = '1' then
+                        if C_FLAG = '0' then
                         pc_ld <= '1';
                         pc_mux_sel <= "00";
                         end if;  
@@ -400,6 +401,7 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                         rf_wr <= '0';
                         scr_we <= '1';
                         scr_data_sel <= '0';
+                        scr_addr_sel <= "11";
                         sp_decr <= '1';
                     
                     -- POP function
