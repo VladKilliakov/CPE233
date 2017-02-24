@@ -1,0 +1,66 @@
+Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
+----------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
+| Date         : Wed Feb 22 09:55:11 2017
+| Host         : DESKTOP-C4JKFA3 running 64-bit major release  (build 9200)
+| Command      : report_control_sets -verbose -file RAT_wrapper_control_sets_placed.rpt
+| Design       : RAT_wrapper
+| Device       : xc7a35t
+----------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    13 |
+| Unused register locations in slices containing registers |    37 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              20 |            9 |
+| No           | No                    | Yes                    |               2 |            1 |
+| No           | Yes                   | No                     |              35 |           10 |
+| Yes          | No                    | No                     |              16 |            6 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              18 |            9 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++-----------------+------------------------------------------------------------+-----------------------------+------------------+----------------+
+|   Clock Signal  |                        Enable Signal                       |       Set/Reset Signal      | Slice Load Count | Bel Load Count |
++-----------------+------------------------------------------------------------+-----------------------------+------------------+----------------+
+|  s_disp_clk_sig |                                                            | sev_seg_part/plusOp[0]      |                1 |              1 |
+|  CLK_IBUF_BUFG  |                                                            |                             |                2 |              2 |
+|  s_clk_sig_BUFG |                                                            | RST_IBUF                    |                1 |              2 |
+|  s_disp_clk_sig |                                                            | sev_seg_part/digit[0]       |                1 |              2 |
+|  s_clk_sig_BUFG |                                                            |                             |                3 |              4 |
+|  CLK_IBUF_BUFG  | CPU/program_counter_part/prog_rom_part/E[0]                |                             |                3 |              8 |
+|  CLK_IBUF_BUFG  | CPU/program_counter_part/prog_rom_part/r_SEV_SEG_reg[0][0] |                             |                3 |              8 |
+|  s_clk_sig_BUFG | CPU/program_counter_part/prog_rom_part/temp_reg[7][0]      | CPU/control_unit_part/SR[0] |                1 |              8 |
+|  s_clk_sig_BUFG | CPU/control_unit_part/E[0]                                 | CPU/control_unit_part/SR[0] |                8 |             10 |
+|  s_disp_clk_sig |                                                            |                             |                4 |             14 |
+|  s_clk_sig_BUFG | CPU/program_counter_part/prog_rom_part/s_rf_wr             |                             |                2 |             16 |
+|  CLK_IBUF_BUFG  |                                                            | clear                       |                8 |             32 |
+|  s_clk_sig_BUFG | CPU/program_counter_part/prog_rom_part/SCR_WR              |                             |               10 |             40 |
++-----------------+------------------------------------------------------------+-----------------------------+------------------+----------------+
+
+

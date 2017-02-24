@@ -120,7 +120,6 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                         rf_wr_sel <= "00";
                         alu_sel <= "1000";
                         alu_opy_sel <= '0';
-                        FLG_C_CLR <= '1';
                         FLG_Z_LD <= '1';
                         
                     -- ADD function
@@ -224,6 +223,7 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                     -- TEST funtion (reg-immed form)
                     when "1001100" | "1001101" | "1001110" | "1001111" =>
                         FLG_C_CLR <= '1';
+                        flg_z_ld <= '1';
                         rf_wr <= '0'; 
                         rf_wr_sel <= "00";
                         alu_sel <= "1000";

@@ -14,9 +14,9 @@ set_property parent.project_path C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.xp
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language VHDL [current_project]
 read_vhdl -library xil_defaultlib {
-  {C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/imports/RAT Assembler/prog_rom.vhd}
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/imports/CPE233/PC.vhd
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/imports/new/MUX.vhd
+  {C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/imports/RAT Assembler/prog_rom.vhd}
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/imports/new/stack_pointer.vhd
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/scratch_ram.vhd
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/flags.vhd
@@ -24,6 +24,7 @@ read_vhdl -library xil_defaultlib {
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/imports/new/Program_counter_top.vhd
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/control_unit.vhd
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/imports/new/ALU.vhd
+  C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/sev_seg.vhd
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/rat_cpu.vhd
   C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sources_1/new/rat_wrapper.vhd
 }

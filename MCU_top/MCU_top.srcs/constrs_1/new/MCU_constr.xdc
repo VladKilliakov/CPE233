@@ -56,3 +56,81 @@ create_clock -add -name sys_clk_pin -period 10 -waveform {0 5} [get_ports {CLK}]
 #buttons
 set_property PACKAGE_PIN W19 [get_ports {RST}]
 set_property IOSTANDARD LVCMOS33 [get_ports {RST}]
+
+#seven segment
+set_property PACKAGE_PIN W4 [get_ports {AnBus[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AnBus[0]}]
+
+set_property PACKAGE_PIN U2 [get_ports {AnBus[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AnBus[1]}]
+
+set_property PACKAGE_PIN U4 [get_ports {AnBus[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AnBus[2]}]
+
+set_property PACKAGE_PIN V4 [get_ports {AnBus[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {AnBus[3]}]
+
+set_property PACKAGE_PIN V7 [get_ports {CaBus[0]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[0]}]
+
+set_property PACKAGE_PIN U7 [get_ports {CaBus[1]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[1]}]
+
+set_property PACKAGE_PIN V5 [get_ports {CaBus[2]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[2]}]
+
+set_property PACKAGE_PIN U5 [get_ports {CaBus[3]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[3]}]
+
+set_property PACKAGE_PIN V8 [get_ports {CaBus[4]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[4]}]
+
+set_property PACKAGE_PIN U8 [get_ports {CaBus[5]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[5]}]
+
+set_property PACKAGE_PIN W6 [get_ports {CaBus[6]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[6]}]
+
+set_property PACKAGE_PIN W7 [get_ports {CaBus[7]}]
+set_property IOSTANDARD LVCMOS33 [get_ports {CaBus[7]}]
+
+##rest of the leds
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[8]}]
+#set_property PACKAGE_PIN V13 [get_ports {Led[8]}]
+
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[9]}]
+#set_property PACKAGE_PIN V3 [get_ports {Led[9]}]
+
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[10]}]
+#set_property PACKAGE_PIN W3 [get_ports {Led[10]}]
+
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[11]}]
+#set_property PACKAGE_PIN U3 [get_ports {Led[11]}]
+
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[12]}]
+#set_property PACKAGE_PIN P3 [get_ports {Led[12]}]
+
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[13]}]
+#set_property PACKAGE_PIN N3 [get_ports {Led[13]}]
+
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[14]}]
+#set_property PACKAGE_PIN P1 [get_ports {Led[14]}]
+
+#set_property IOSTANDARD LVCMOS33 [get_ports {Led[15]}]
+#set_property PACKAGE_PIN L1 [get_ports {Led[15]}]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
