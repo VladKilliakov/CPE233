@@ -3,10 +3,10 @@
 <!--The data in this file is primarily intended for consumption by Xilinx tools.
 The structure and the elements are likely to change over the next few releases.
 This means code written to parse this file will need to be revisited each subsequent release.-->
-<application name="pa" timeStamp="Wed Feb 22 22:52:24 2017">
+<application name="pa" timeStamp="Wed Mar 01 15:26:56 2017">
 <section name="Project Information" visible="false">
 <property name="ProjectID" value="5e68b83f83924c08a50772cd4d76721e" type="ProjectID"/>
-<property name="ProjectIteration" value="7" type="ProjectIteration"/>
+<property name="ProjectIteration" value="45" type="ProjectIteration"/>
 </section>
 <section name="PlanAhead Usage" visible="true">
 <item name="Project Data">
@@ -17,41 +17,34 @@ This means code written to parse this file will need to be revisited each subseq
 <property name="ImplStrategy" value="Vivado Implementation Defaults" type="ImplStrategy"/>
 </item>
 <item name="Java Command Handlers">
-<property name="AddSources" value="37" type="JavaHandler"/>
-<property name="AutoConnectTarget" value="3" type="JavaHandler"/>
+<property name="AddSources" value="53" type="JavaHandler"/>
+<property name="AutoConnectTarget" value="13" type="JavaHandler"/>
 <property name="CloseProject" value="1" type="JavaHandler"/>
-<property name="EditDelete" value="22" type="JavaHandler"/>
-<property name="LaunchProgramFpga" value="5" type="JavaHandler"/>
+<property name="EditDelete" value="37" type="JavaHandler"/>
+<property name="LaunchOpenTarget" value="1" type="JavaHandler"/>
+<property name="LaunchProgramFpga" value="23" type="JavaHandler"/>
 <property name="NewProject" value="2" type="JavaHandler"/>
-<property name="OpenHardwareManager" value="5" type="JavaHandler"/>
+<property name="OpenHardwareManager" value="14" type="JavaHandler"/>
 <property name="OpenProject" value="1" type="JavaHandler"/>
-<property name="OpenRecentTarget" value="1" type="JavaHandler"/>
+<property name="OpenRecentTarget" value="5" type="JavaHandler"/>
+<property name="OpenTarget" value="1" type="JavaHandler"/>
+<property name="ProgramDevice" value="2" type="JavaHandler"/>
 <property name="ProjectSettingsCmdHandler" value="2" type="JavaHandler"/>
-<property name="RunBitgen" value="5" type="JavaHandler"/>
-<property name="RunImplementation" value="1" type="JavaHandler"/>
-<property name="RunSynthesis" value="17" type="JavaHandler"/>
-<property name="SaveFileProxyHandler" value="11" type="JavaHandler"/>
+<property name="RunBitgen" value="25" type="JavaHandler"/>
+<property name="RunImplementation" value="19" type="JavaHandler"/>
+<property name="RunSynthesis" value="40" type="JavaHandler"/>
+<property name="SaveFileProxyHandler" value="14" type="JavaHandler"/>
 <property name="SetTopNode" value="2" type="JavaHandler"/>
-<property name="ShowView" value="16" type="JavaHandler"/>
-<property name="SimulationClose" value="39" type="JavaHandler"/>
-<property name="SimulationRestart" value="98" type="JavaHandler"/>
-<property name="SimulationRun" value="46" type="JavaHandler"/>
-<property name="SimulationRunForTime" value="102" type="JavaHandler"/>
-<property name="ToggleViewNavigator" value="32" type="JavaHandler"/>
+<property name="ShowView" value="26" type="JavaHandler"/>
+<property name="SimulationClose" value="52" type="JavaHandler"/>
+<property name="SimulationRestart" value="140" type="JavaHandler"/>
+<property name="SimulationRun" value="63" type="JavaHandler"/>
+<property name="SimulationRunForTime" value="144" type="JavaHandler"/>
+<property name="ToggleViewNavigator" value="46" type="JavaHandler"/>
 <property name="ToolsOptions" value="1" type="JavaHandler"/>
-<property name="ViewTaskImplementation" value="1" type="JavaHandler"/>
+<property name="ViewTaskImplementation" value="2" type="JavaHandler"/>
 <property name="ViewTaskRTLAnalysis" value="1" type="JavaHandler"/>
-<property name="WaveformSaveConfiguration" value="6" type="JavaHandler"/>
-</item>
-<item name="Gui Resources Info">
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, [, Simulation, Run Simulation], 11, false, false, false, false, true, false" value="1" type="GuiResourceData"/>
-<property name="PAResourceEtoH.GettingStartedView_RECENT_PROJECTS, C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.xpr, 0" value="1" type="GuiResourceData"/>
-</item>
-<item name="Other">
-<property name="GuiMode" value="51" type="GuiMode"/>
-<property name="BatchMode" value="0" type="BatchMode"/>
-<property name="TclMode" value="48" type="TclMode"/>
+<property name="WaveformSaveConfiguration" value="8" type="JavaHandler"/>
 </item>
 </section>
 </application>

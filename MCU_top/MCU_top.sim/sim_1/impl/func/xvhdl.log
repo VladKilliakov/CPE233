@@ -1,0 +1,17 @@
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.sim/sim_1/impl/func/mcu_sim_func_impl.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity ALU
+INFO: [VRFC 10-307] analyzing entity PC
+INFO: [VRFC 10-307] analyzing entity Scratch_RAM
+INFO: [VRFC 10-307] analyzing entity Sev_Seg
+INFO: [VRFC 10-307] analyzing entity control_unit
+INFO: [VRFC 10-307] analyzing entity counter
+INFO: [VRFC 10-307] analyzing entity flags
+INFO: [VRFC 10-307] analyzing entity prog_rom
+INFO: [VRFC 10-307] analyzing entity register_file
+INFO: [VRFC 10-307] analyzing entity stack_pointer
+INFO: [VRFC 10-307] analyzing entity Program_counter_top
+INFO: [VRFC 10-307] analyzing entity db_1shot_FSM
+INFO: [VRFC 10-307] analyzing entity rat_cpu
+INFO: [VRFC 10-307] analyzing entity RAT_wrapper
+INFO: [VRFC 10-163] Analyzing VHDL file "C:/Users/kilvl/Vivado/CPE233/MCU_top/MCU_top.srcs/sim_1/new/mcu_sim.vhd" into library xil_defaultlib
+INFO: [VRFC 10-307] analyzing entity mcu_sim

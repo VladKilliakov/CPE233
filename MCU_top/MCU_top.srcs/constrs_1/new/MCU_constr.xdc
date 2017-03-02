@@ -57,6 +57,9 @@ create_clock -add -name sys_clk_pin -period 10 -waveform {0 5} [get_ports {CLK}]
 set_property PACKAGE_PIN W19 [get_ports {RST}]
 set_property IOSTANDARD LVCMOS33 [get_ports {RST}]
 
+set_property PACKAGE_PIN U18 [get_ports {INT}]
+set_property IOSTANDARD LVCMOS33 [get_ports {INT}]
+
 #seven segment
 set_property PACKAGE_PIN W4 [get_ports {AnBus[0]}]
 set_property IOSTANDARD LVCMOS33 [get_ports {AnBus[0]}]

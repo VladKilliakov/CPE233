@@ -111,11 +111,13 @@ signal s_sp_ld, s_sp_incr, s_sp_decr, s_scr_we, s_scr_data_sel, s_rf_wr: std_log
 signal s_flg_c_set, s_flg_c_clr, s_flg_c_ld, s_flg_z_ld, s_flg_ld_sel, s_flg_shad_ld: std_logic;
 signal s_pc_mux_sel, s_rf_wr_sel, s_scr_addr_sel: std_logic_vector(1 downto 0);
 signal s_alu_sel: std_logic_vector(3 downto 0);
+
 -- Control unit input signals
 signal s_reset, s_int, s_clk: std_logic;
 signal s_opcode_hi_5: std_logic_vector(4 downto 0);
 signal s_opcode_lo_2: std_logic_vector(1 downto 0);
 signal s_c_flag, s_z_flag: std_logic := '0';
+signal s_out: std_logic := '0';
 
 -- ALU signals
 signal s_a, s_b, s_result: std_logic_vector(7 downto 0);
@@ -136,6 +138,19 @@ signal s_scr_addr: std_logic_vector(7 downto 0);
 
 begin
 
+process (clk)
+    begin 
+    if rising_edge(clk) then
+        if (s_i_set = '1') then 
+            s_out <= '1';
+        elsif (s_i_clr = '1') then
+            s_out <= '0';
+        end if;
+    end if;
+end process;
+          
+s_int <= s_out AND int;
+            
 control_unit_part: control_unit
 port map( i_set => s_i_set,
           i_clr => s_i_clr,
@@ -162,7 +177,7 @@ port map( i_set => s_i_set,
           io_strb => io_strb,
           c_flag => s_c_flag,
           z_flag => s_z_flag,
-          int => int,
+          int => s_int,
           reset => reset,
           opcode_hi_5 => s_instruction(17 downto 13),
           opcode_lo_2 => s_instruction(1 downto 0),

@@ -37,7 +37,7 @@ end control_unit;
 
 architecture Behavioral of control_unit is
 
-type state_type is (st_init, st_fetch, st_exec);
+type state_type is (st_init, st_fetch, st_exec, st_interrupt);
 signal ps, ns: state_type;
 signal op_code_7: std_logic_vector(6 downto 0);
 
@@ -51,7 +51,7 @@ state_p: process(clk, reset) begin
             end if;
          end process state_p;
             
-comb_p: process(ps, op_code_7, z_flag, c_flag) begin
+comb_p: process(ps, op_code_7, int, z_flag, c_flag) begin
         I_SET <= '0';
         I_CLR <= '0';
         PC_LD <= '0';
@@ -84,7 +84,13 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                 ns <= st_exec;
                 pc_inc <= '1';
             when st_exec =>
-                ns <= st_fetch;
+                if (INT = '0') then
+                    ns <= st_fetch;
+                else
+                    ns <= st_interrupt;
+                    i_clr <= '1';
+                end if;
+                
                 case (op_code_7) is 
                     -- AND function
                     when "0000000" =>
@@ -439,18 +445,43 @@ comb_p: process(ps, op_code_7, z_flag, c_flag) begin
                     
                     -- SEI function
                     when "0110100" =>
+                        I_SET <= '1';
                     
                     -- CLI function
                     when "0110101" =>
+                        I_CLR <= '1';
                     
                     -- RETID function
                     when "0110110" =>
-                    
+                        I_CLR <= '1';
+                        FLG_LD_SEL <= '1';
+                        scr_we <= '0';
+                        scr_addr_sel <= "10";
+                        pc_mux_sel <= "01";
+                        pc_ld <= '1';
+                                                
                     -- RETIE function
                     when "0110111" =>    
+                        I_SET <= '1';
+                        sp_incr <= '1'; --added for test
+                        FLG_LD_SEL <= '1';
+                        scr_we <= '0';
+                        scr_addr_sel <= "10";
+                        pc_mux_sel <= "01";
+                        pc_ld <= '1';
                         
                     when others => 
                 end case;
+        when st_interrupt =>
+            ns <= st_fetch;
+            pc_ld <= '1';
+            pc_mux_sel <= "10";
+            scr_data_sel <= '1';
+            sp_decr <= '1';
+            scr_addr_sel <= "11";
+            scr_we <= '1';
+            flg_shad_ld <= '1';
+            
         when others => NS <= ST_init;
         end case;               
         end process;

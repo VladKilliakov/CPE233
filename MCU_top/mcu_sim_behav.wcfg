@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="mcu_sim_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="mcu_sim" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="24792627219fs"></ZoomStartTime>
+      <ZoomEndTime time="25041474557fs"></ZoomEndTime>
+      <Cursor1Time time="25000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <WVObjectSize size="12" />
+   <wvobject fp_name="/mcu_sim/s_clk" type="logic">
+      <obj_property name="ElementShortName">s_clk</obj_property>
+      <obj_property name="ObjectShortName">s_clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/s_leds" type="array">
+      <obj_property name="ElementShortName">s_leds[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_leds[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/s_switches" type="array">
+      <obj_property name="ElementShortName">s_switches[7:0]</obj_property>
+      <obj_property name="ObjectShortName">s_switches[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/s_rst" type="logic">
+      <obj_property name="ElementShortName">s_rst</obj_property>
+      <obj_property name="ObjectShortName">s_rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/s_int" type="logic">
+      <obj_property name="ElementShortName">s_int</obj_property>
+      <obj_property name="ObjectShortName">s_int</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/UUT/db_1shot_FSM_part/A" type="logic">
+      <obj_property name="ElementShortName">A</obj_property>
+      <obj_property name="ObjectShortName">A</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/UUT/db_1shot_FSM_part/A_DB" type="logic">
+      <obj_property name="ElementShortName">A_DB</obj_property>
+      <obj_property name="ObjectShortName">A_DB</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/UUT/CPU/s_out" type="logic">
+      <obj_property name="ElementShortName">s_out</obj_property>
+      <obj_property name="ObjectShortName">s_out</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/UUT/CPU/control_unit_part/ps" type="other">
+      <obj_property name="ElementShortName">ps</obj_property>
+      <obj_property name="ObjectShortName">ps</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/UUT/CPU/s_i_set" type="logic">
+      <obj_property name="ElementShortName">s_i_set</obj_property>
+      <obj_property name="ObjectShortName">s_i_set</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/UUT/CPU/s_i_clr" type="logic">
+      <obj_property name="ElementShortName">s_i_clr</obj_property>
+      <obj_property name="ObjectShortName">s_i_clr</obj_property>
+   </wvobject>
+   <wvobject fp_name="/mcu_sim/UUT/CPU/control_unit_part/INT" type="logic">
+      <obj_property name="ElementShortName">INT</obj_property>
+      <obj_property name="ObjectShortName">INT</obj_property>
+   </wvobject>
+</wave_config>

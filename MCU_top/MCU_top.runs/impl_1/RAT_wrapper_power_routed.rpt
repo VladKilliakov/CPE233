@@ -1,7 +1,7 @@
 Copyright 1986-2016 Xilinx, Inc. All Rights Reserved.
 -------------------------------------------------------------------------------------------------------------------------------------------------------
 | Tool Version     : Vivado v.2016.2 (win64) Build 1577090 Thu Jun  2 16:32:40 MDT 2016
-| Date             : Wed Feb 22 09:56:16 2017
+| Date             : Wed Mar 01 15:19:08 2017
 | Host             : DESKTOP-C4JKFA3 running 64-bit major release  (build 9200)
 | Command          : report_power -file RAT_wrapper_power_routed.rpt -pb RAT_wrapper_power_summary_routed.pb -rpx RAT_wrapper_power_routed.rpx
 | Design           : RAT_wrapper
@@ -30,8 +30,8 @@ Table of Contents
 ----------
 
 +--------------------------+-------+
-| Total On-Chip Power (W)  | 0.079 |
-| Dynamic (W)              | 0.008 |
+| Total On-Chip Power (W)  | 0.081 |
+| Dynamic (W)              | 0.009 |
 | Device Static (W)        | 0.072 |
 | Effective TJA (C/W)      | 5.0   |
 | Max Ambient (C)          | 84.6  |
@@ -50,19 +50,19 @@ Table of Contents
 | On-Chip                  | Power (W) | Used     | Available | Utilization (%) |
 +--------------------------+-----------+----------+-----------+-----------------+
 | Clocks                   |    <0.001 |        3 |       --- |             --- |
-| Slice Logic              |     0.003 |      529 |       --- |             --- |
-|   LUT as Logic           |     0.002 |      245 |     20800 |            1.18 |
+| Slice Logic              |     0.003 |      593 |       --- |             --- |
+|   LUT as Logic           |     0.003 |      281 |     20800 |            1.35 |
 |   LUT as Distributed RAM |    <0.001 |       48 |      9600 |            0.50 |
 |   CARRY4                 |    <0.001 |       27 |      8150 |            0.33 |
-|   F7/F8 Muxes            |    <0.001 |       55 |     32600 |            0.17 |
+|   F7/F8 Muxes            |    <0.001 |       58 |     32600 |            0.18 |
 |   BUFG                   |    <0.001 |        1 |        32 |            3.13 |
-|   Register               |    <0.001 |       91 |     41600 |            0.22 |
-|   Others                 |     0.000 |       17 |       --- |             --- |
-| Signals                  |     0.003 |      430 |       --- |             --- |
+|   Register               |    <0.001 |      105 |     41600 |            0.25 |
+|   Others                 |     0.000 |       21 |       --- |             --- |
+| Signals                  |     0.004 |      450 |       --- |             --- |
 | Block RAM                |    <0.001 |      0.5 |        50 |            1.00 |
-| I/O                      |    <0.001 |       30 |       106 |           28.30 |
+| I/O                      |    <0.001 |       31 |       106 |           29.25 |
 | Static Power             |     0.072 |          |           |                 |
-| Total                    |     0.079 |          |           |                 |
+| Total                    |     0.081 |          |           |                 |
 +--------------------------+-----------+----------+-----------+-----------------+
 
 
@@ -72,7 +72,7 @@ Table of Contents
 +-----------+-------------+-----------+-------------+------------+
 | Source    | Voltage (V) | Total (A) | Dynamic (A) | Static (A) |
 +-----------+-------------+-----------+-------------+------------+
-| Vccint    |       1.000 |     0.017 |       0.008 |      0.010 |
+| Vccint    |       1.000 |     0.018 |       0.009 |      0.010 |
 | Vccaux    |       1.800 |     0.013 |       0.000 |      0.013 |
 | Vcco33    |       3.300 |     0.001 |       0.000 |      0.001 |
 | Vcco25    |       2.500 |     0.000 |       0.000 |      0.000 |
@@ -141,14 +141,14 @@ Table of Contents
 +-----------------------------+-----------+
 | Name                        | Power (W) |
 +-----------------------------+-----------+
-| RAT_wrapper                 |     0.008 |
-|   CPU                       |     0.006 |
+| RAT_wrapper                 |     0.009 |
+|   CPU                       |     0.007 |
 |     alu_part                |    <0.001 |
 |     control_unit_part       |    <0.001 |
 |     flags_part              |    <0.001 |
-|     program_counter_part    |     0.004 |
+|     program_counter_part    |     0.005 |
 |       PC_part               |    <0.001 |
-|       prog_rom_part         |     0.003 |
+|       prog_rom_part         |     0.004 |
 |     register_file_part      |    <0.001 |
 |       reg_reg_0_31_0_0      |    <0.001 |
 |       reg_reg_0_31_1_1      |    <0.001 |
@@ -170,6 +170,8 @@ Table of Contents
 |       scratch_reg_0_255_8_8 |    <0.001 |
 |       scratch_reg_0_255_9_9 |    <0.001 |
 |     stack_pointer_part      |    <0.001 |
+|   db_1shot_FSM_part         |    <0.001 |
+|     bounce_counter          |    <0.001 |
 |   sev_seg_part              |    <0.001 |
 +-----------------------------+-----------+
 

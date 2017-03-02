@@ -19,6 +19,7 @@ entity RAT_wrapper is
            CaBus  : out   STD_LOGIC_VECTOR (7 downto 0);
            AnBus  : out STD_LOGIC_VECTOR (3 downto 0);
            SWITCHES : in    STD_LOGIC_VECTOR (7 downto 0);
+           INT      : in    STD_LOGIC;
            RST      : in    STD_LOGIC;
            CLK      : in    STD_LOGIC);
 end RAT_wrapper;
@@ -59,6 +60,13 @@ architecture Behavioral of RAT_wrapper is
               CaBus : out STD_LOGIC_VECTOR (7 downto 0));
    end component SEV_SEG;
    
+   -- Declare Debouncer
+   component db_1shot_FSM
+        Port ( A    : in STD_LOGIC;
+              CLK  : in STD_LOGIC;
+              A_DB : out STD_LOGIC);
+   end component db_1shot_FSM; 
+   
    -- Signals for connecting RAT_CPU to RAT_wrapper -------------------------------
    signal s_input_port  : std_logic_vector (7 downto 0);
    signal s_output_port : std_logic_vector (7 downto 0);
@@ -66,12 +74,13 @@ architecture Behavioral of RAT_wrapper is
    signal s_load        : std_logic;
    signal s_clk_sig     : std_logic := '0';
    signal s_disp_clk_sig    : std_logic := '0';
-   --signal s_interrupt   : std_logic; -- not yet used
+   signal s_interrupt   : std_logic;
    
    -- Register definitions for output devices ------------------------------------
    -- add signals for any added outputs
    signal r_LEDS        : std_logic_vector (7 downto 0);
    signal r_SEV_SEG     : std_logic_vector (15 downto 0);
+   signal r_sev_seg_decimal: std_logic_vector (15 downto 0);
    -------------------------------------------------------------------------------
 
 begin
@@ -98,6 +107,35 @@ begin
         end if;
    end process disp_clk_div;
    
+   -- Convert hex to decimal
+   hex_to_decimal: process(r_sev_seg)
+   begin 
+        case r_sev_seg is
+            when x"0000" => r_sev_seg_decimal <= x"0000";
+            when x"0001" => r_sev_seg_decimal <= x"0001";
+            when x"0002" => r_sev_seg_decimal <= x"0002";
+            when x"0003" => r_sev_seg_decimal <= x"0003";
+            when x"0004" => r_sev_seg_decimal <= x"0004";
+            when x"0005" => r_sev_seg_decimal <= x"0005";
+            when x"0006" => r_sev_seg_decimal <= x"0006";
+            when x"0007" => r_sev_seg_decimal <= x"0007";
+            when x"0008" => r_sev_seg_decimal <= x"0008";
+            when x"0009" => r_sev_seg_decimal <= x"0009";
+            when x"000a" => r_sev_seg_decimal <= x"0010";
+            when x"000b" => r_sev_seg_decimal <= x"0011";
+            when x"000c" => r_sev_seg_decimal <= x"0012";
+            when x"000d" => r_sev_seg_decimal <= x"0013";
+            when x"000e" => r_sev_seg_decimal <= x"0014";
+            when x"000f" => r_sev_seg_decimal <= x"0015";
+            when x"00010" => r_sev_seg_decimal <= x"0016";
+            when x"0011" => r_sev_seg_decimal <= x"0017";
+            when x"0012" => r_sev_seg_decimal <= x"0018";
+            when x"0013" => r_sev_seg_decimal <= x"0019";
+            when x"0014" => r_sev_seg_decimal <= x"0020";
+            when others => r_sev_seg_decimal <= r_sev_seg;
+            end case;
+   end process hex_to_decimal;
+   
    
    -- Instantiate RAT_CPU --------------------------------------------------------
    CPU: RAT_CPU
@@ -106,17 +144,23 @@ begin
               PORT_ID  => s_port_id,
               RESET    => RST,
               IO_STRB  => s_load,
-              INT   => '0',  -- s_interrupt
+              INT   => s_interrupt,
               CLK      => s_clk_sig);
    -------------------------------------------------------------------------------
 
    -- Instantiates SEV_SEG
    sev_seg_part: sev_seg
-    port map (clk => s_disp_clk_sig,
-              input => r_sev_seg,
-              AnBus => AnBus,
-              CaBus => CaBus);
+   port map (clk => s_disp_clk_sig,
+             input => r_sev_seg_decimal,
+             AnBus => AnBus,
+             CaBus => CaBus);
 
+   -- Instantiates db_1shot_FSM
+   db_1shot_FSM_part: db_1shot_FSM
+   port map (clk => s_clk_sig,
+             A => int,
+             A_DB => s_interrupt);
+             
    -------------------------------------------------------------------------------
    -- MUX for selecting what input to read ---------------------------------------
    -- add conditions and connections for any added PORT IDs

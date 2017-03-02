@@ -1,0 +1,1 @@
+-wto "676a67a6474d47c9ad9d4329ccccd2fa" --debug "typical" --relax --mt "2" -L "xil_defaultlib" -L "secureip" --snapshot "mcu_sim_func_impl" "xil_defaultlib.mcu_sim" -log "elaborate.log" 
