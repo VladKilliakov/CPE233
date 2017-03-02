@@ -127,7 +127,7 @@ begin
             when x"000d" => r_sev_seg_decimal <= x"0013";
             when x"000e" => r_sev_seg_decimal <= x"0014";
             when x"000f" => r_sev_seg_decimal <= x"0015";
-            when x"00010" => r_sev_seg_decimal <= x"0016";
+            when x"0010" => r_sev_seg_decimal <= x"0016";
             when x"0011" => r_sev_seg_decimal <= x"0017";
             when x"0012" => r_sev_seg_decimal <= x"0018";
             when x"0013" => r_sev_seg_decimal <= x"0019";
