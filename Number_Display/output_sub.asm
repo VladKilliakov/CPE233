@@ -67,39 +67,39 @@ check_sign:
 CMP r9, 0x01
 BREQ set_negative
 MOV r9, 0x00
-BRN lut
+BRN output_lut
 
 set_negative:
 MOV r9, 0x3C
 
-lut: 	  
+output_lut: 	  
           MOV r4, 0x28
           MOV r7, 0x00
 	      CMP r10, 0x00
-		  BREQ done_100
+		  BREQ done_out_100
           CMP r10, 0x01
           BRNE set_100
           MOV r10, 0x2A
-comp_10:  CMP r11, r7
-          BREQ done_10
+comp_out_10:  CMP r11, r7
+          BREQ done_out_10
           ADD r7, 0x01
           ADD r4, 0x02
-          BRN comp_10
-comp:     CMP r12, r7
-          BREQ done_1
+          BRN comp_out_10
+comp_out:     CMP r12, r7
+          BREQ done_out_1
           ADD r7, 0x01
           ADD r4, 0x02
-          BRN comp 
+          BRN comp_out 
 
 set_100: MOV r10, 0x2C
-done_100: BRN comp_10
+done_out_100: BRN comp_out_10
 
-done_10:  MOV r11, r4
+done_out_10:  MOV r11, r4
           MOV r4, 0x28
           MOV r7, 0x00
-          BRN comp
+          BRN comp_out
 
-done_1:   MOV r12, r4
+done_out_1:   MOV r12, r4
 
 draw_output:
 		  MOV r4, 0x00
@@ -109,48 +109,48 @@ set_row:  MOV r17, r16
           MOV r19, 0x01
           MOV r7, 0x00
           CMP r9, 0x00
-          BREQ next_digit
+          BREQ next_digit_out
           
 
 
-reg_1:    LD r20,  (r9)
-		  BRN hi_lo
-reg_2:    ADD r9, 0x01
+out_reg1:    LD r20,  (r9)
+		  BRN hi_lo_out
+out_reg2:    ADD r9, 0x01
           LD r20, (r9)
 		  MOV r8, 0x07
           CMP r7, 0x01
-          BREQ done
+          BREQ done_out
 	 	  MOV r7, 0x01	
 
-hi_lo:    SUB r8, 0x01
-          BRCS reg_2
+hi_lo_out:    SUB r8, 0x01
+          BRCS out_reg2
           LSL r20
           MOV r14, 0x01
-		  BRCS high
-          BRCC low
-high:	  OUT r17, row
+		  BRCS high_out
+          BRCC low_out
+high_out:	  OUT r17, row
 		  OUT r18, col
           OUT r14, color
-          BRN mov_col
+          BRN mov_col_out
 
-low: 	  MOV r14, 0x00 
+low_out: 	  MOV r14, 0x00 
 		  OUT r17, row
 		  OUT r18, col
           OUT r14, color
  
-mov_col:  ADD r19, 0x01
+mov_col_out:  ADD r19, 0x01
  		  CMP r19, 0x04
-		  BREQ mov_row
+		  BREQ mov_row_out
           ADD r18, 0x01
-          BRNE hi_lo
+          BRNE hi_lo_out
 
-mov_row:  SUB r18, 0x02
+mov_row_out:  SUB r18, 0x02
           SUB r19, 0x03
           ADD r17, 0x01
-          BRN hi_lo
+          BRN hi_lo_out
 
-done:     CMP r4, 0x00
-		  BREQ digit_2
+done_out:     CMP r4, 0x00
+		  BREQ digit_2_out
           CMP r4, 0x01
           BREQ digit_3
           CMP r4, 0x02
@@ -159,15 +159,15 @@ done:     CMP r4, 0x00
           BRN out_address
           ;BRN delay
 
-next_digit: CMP r4, 0x00
-            BREQ digit_2
+next_digit_out: CMP r4, 0x00
+            BREQ digit_2_out
             CMP r4, 0x01
             BREQ digit_3
             CMP r4, 0x02
             BREQ digit_4
             
 
-digit_2:  ADD r4, 0x01
+digit_2_out:  ADD r4, 0x01
 		  MOV r9, r10
 		  ADD r18, 0x04
           BRN set_row
