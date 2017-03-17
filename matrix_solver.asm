@@ -41,13 +41,13 @@ sub r10,r21
 
 ;start of top index algorithm
 mov r23,0x00 ;r23 stores the outer index counter (i)
-outer_loop1: mov r24,r23 ;r24 stores the index value (d)
+outer_loop1: mov r20,r23 ;r20 stores the index value (d)
 mov r25,0x00 ;r25 stores the inner index counter (k)
 cmp r27,r19
 brne increment
-inner_loop1: st r24,(r27) ;r27 stores the pointer to the indices storage
+inner_loop1: st r20,(r27) ;r27 stores the pointer to the indices storage
 
-mov r17,r24 ;r18 stores the mod result
+mov r17,r20 ;r18 stores the mod result
 division1: sub r17,r0 
 BRCC division1
 add r17,r0
@@ -56,8 +56,8 @@ mov r18,r0
 sub r18,0x01
 cmp r18,r17
 breq equal
-add r24,r0
-equal: add r24,0x01
+add r20,r0
+equal: add r20,0x01
 
 add r27,0x01 ;increase the index pointer
 add r25,0x01
@@ -82,11 +82,11 @@ outer_loop2:
 add r27,r0
 ;;;;;;;;;;;;;
 
-mov r24,r23 ;r24 stores the index value (d)
+mov r20,r23 ;r20 stores the index value (d)
 mov r25,0x00 ;r25 stores the inner index counter (k)
-inner_loop2: st r24,(r27) ;r27 stores the pointer to the indices storage
+inner_loop2: st r20,(r27) ;r27 stores the pointer to the indices storage
 
-mov r17,r24 ;r18 stores the mod result
+mov r17,r20 ;r18 stores the mod result
 division2: sub r17,r0 
 BRCC division2
 add r17,r0
@@ -95,9 +95,9 @@ mov r18,r0
 sub r18,0x01
 cmp r18,r17
 brne not_equal
-sub r24,r0
-not_equal: add r24,0x01
-sub r24,r0
+sub r20,r0
+not_equal: add r20,0x01
+sub r20,r0
 
 add r27,0x01 ;increase the index pointer
 add r25,0x01
@@ -151,14 +151,14 @@ add r25,r21
 mov r23,r10
 sub r23,r21 ;r23 stores the address where to write the new matrix to
 mov r26,r19 ;r26 is the pointer to the indices matrix
-mov r24,0x00 ;r24 temporarily stores the adderess to the original matrix
+mov r20,0x00 ;r20 temporarily stores the adderess to the original matrix
 mov r29,r23 ;r29 is the pointer to the new matrix 
 
 conv_loop: 
 mov r27,0x00 ;r27 temporarily stores the element value of original matrix
 mov r28,r30 ;r28 is the pointer to the matrix copy	
-ld r24,(r26) ;get the needed location
-add r28,r24
+ld r20,(r26) ;get the needed location
+add r28,r20
 ld r27,(r28)
 st r27,(r29)
 add r26,0x01

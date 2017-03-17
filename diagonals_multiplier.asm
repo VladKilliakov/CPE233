@@ -277,8 +277,33 @@ out r28,0x10
 out r29,0x11
 brn cross_finished
 
-determinant_done: mov r31,0x00
+determinant_done: mov r31,0x00 ;here r31 will store n^2+n+(r24*3)
+;r24 indicates the determinant number that is currently calculated
+mov r30,0x00
+add r30,r0 ;here r30 stores n+1, to compare it against r24
+add r30,0x01
 add r31,r21
-st r28,(r31)
+add r31,r0
+
+cmp r24,0x00
+breq store
+mov r6,0x00
+mov r7,r24
+storage_mult: add r6,0x03 ;r6 stores r24*3, 3 is number width
+sub r7,0x01
+brne storage_mult
+add r31,r6
+
+store: st r23,(r31)
 add r31,0x01
+st r28,(r31)
+add r31,0x01 
 st r29,(r31)
+add r24,0x01
+cmp r24,r30
+brne get_cramer
+mov r24,0x00
+brn get_answers
+
+get_cramer:
+get_answers:
