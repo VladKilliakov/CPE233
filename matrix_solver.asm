@@ -31,13 +31,20 @@ brne square
 mov r27,0x00
 sub r27,r21 ;r27 stores the index pointer of diagonal indices
 sub r27,r21 
+cmp r0,0x02
+breq n_2
+sub r27,r21
 sub r27,r21
 mov r19,r27 ;r19 stores the start addess of diagonal indices
+mov r10,0x00 ;r10 stores the start address of original matrix
+sub r10,r21
 
 ;start of top index algorithm
 mov r23,0x00 ;r23 stores the outer index counter (i)
 outer_loop1: mov r24,r23 ;r24 stores the index value (d)
 mov r25,0x00 ;r25 stores the inner index counter (k)
+cmp r27,r19
+brne increment
 inner_loop1: st r24,(r27) ;r27 stores the pointer to the indices storage
 
 mov r17,r24 ;r18 stores the mod result
@@ -60,11 +67,22 @@ add r23,0x01
 cmp r23,r0
 brcs outer_loop1
 
+;;;;;;;;;;;;;
+mov r27,r19
+;;;;;;;;;;;;;
 
 ;start of bottom index algorithm
 mov r23,r21 ;r23 stores the outer index counter (i)
+
+
 sub r23,r0
-outer_loop2: mov r24,r23 ;r24 stores the index value (d)
+outer_loop2: 
+
+;;;;;;;;;;;;;
+add r27,r0
+;;;;;;;;;;;;;
+
+mov r24,r23 ;r24 stores the index value (d)
 mov r25,0x00 ;r25 stores the inner index counter (k)
 inner_loop2: st r24,(r27) ;r27 stores the pointer to the indices storage
 
@@ -88,8 +106,67 @@ brcs inner_loop2
 add r23,0x01
 cmp r23,r21
 brcs outer_loop2
+brn converter
+
+increment: add r27,r0
+brn inner_loop1
+
+n_2:mov r31,0x00
+sub r31,r21
+wsp r31
+pop r1
+pop r2
+pop r3
+pop r4
+mov r30,r31
+st r1,(r30)
+mov r30,r31
+add r30,0x03
+st r2,(r30)
+mov r30,r31
+add r30,0x02
+st r3,(r30)
+mov r30,r31
+add r30,0x01
+st r4,(r30)
+brn done
+
+converter: mov r31,r21 ;r31 is the secondary matrix storage loop counter
+mov r30,r19
+mov r27,0x00 ;r27 temporarily stores the element value of original matrix
+mov r29,r10 ;r29 is the pointer to the original matrix elements
+sub r30,r21 ;r30 is the beginning address of the matrix copy
+mov r28,r30 ;r28 is the pointer, when building the copy matrix
+copy_loop: sub r31,0x01
+ld r27,(r29)
+st r27,(r28)
+add r29,0x01
+add r28,0x01
+cmp r29,0x00
+brne copy_loop
+
+done:out r12,0x0c
+mov r25,r21 ;r25 is the loop counter for the conv_loop, equals n*2
+add r25,r21
+mov r23,r10
+sub r23,r21 ;r23 stores the address where to write the new matrix to
+mov r26,r19 ;r26 is the pointer to the indices matrix
+mov r24,0x00 ;r24 temporarily stores the adderess to the original matrix
+mov r29,r23 ;r29 is the pointer to the new matrix 
+
+conv_loop: 
+mov r27,0x00 ;r27 temporarily stores the element value of original matrix
+mov r28,r30 ;r28 is the pointer to the matrix copy	
+ld r24,(r26) ;get the needed location
+add r28,r24
+ld r27,(r28)
+st r27,(r29)
+add r26,0x01
+add r29,0x01
+sub r25,0x01
+cmp r25,0x00
+brne conv_loop
 
 
-;derminant calculation subroutine
-wsp r19
+
 

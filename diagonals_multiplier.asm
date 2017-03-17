@@ -18,7 +18,7 @@ mov r12,0x0f
 mov r13,0x07
 mov r14,0x05
 mov r15,0x09
-mov r16,0x01
+mov r16,0x0b
 mov r17,0x03
 mov r18,0x06
 mov r19,0x11
@@ -62,7 +62,7 @@ mov r18,0x00
 mov r19,0x00
 mov r25,0x00
 
-mov r21,0x12
+mov r21,0x04
 sub r19,r21 ;r19 stores the start address for diagonal indices
 
 mov r31,0x00 ;r31 stores the LSByte for the determinant result
@@ -91,7 +91,11 @@ cmp r14,r20 ;check if it's the first multiplication
 breq first_mult
 mov r3,r11
 brn other_mults
-first_mult: mov r16,r11 ;r16 temporarily stores a copy of 2nd operand
+first_mult: cmp r10,0x00
+breq zero_case
+cmp r11,0x00
+breq zero_case
+mov r16,r11 ;r16 temporarily stores a copy of 2nd operand
 mov r15,0x00
 mov r1,0x00
 diag_inner_mult: add r15,r10
@@ -103,6 +107,9 @@ return: sub r14,0x01
 cmp r14,0x00 ;check if the diagonal multiplication is done
 breq new_diagonal
 brn diagonals_multiplier
+
+zero_case: mov r2,0x00
+brn return
 
 new_diagonal: mov r14, r20 ;reset diagonal counter with n-1 value
 add r19,0x01
@@ -139,6 +146,8 @@ brn diagonals_multiplier
 
 cross_finished:exor r17,0xff
 sub r19,0x01
+cmp r19,0x00
+breq determinant_done
 brn diagonals_multiplier
 
 other_mults: 
@@ -183,6 +192,8 @@ brn return
 
 single_mult: mov r5,r3
 mov r9,0x00
+cmp r2,0x00
+breq done
 multiply4: add r9,r2
 addc r7,0x00
 sub r5,0x01
@@ -234,7 +245,13 @@ exor r2,0xff
 add r2,0x01
 mov r23,0x02
 brn next
-right_overflow: sub r1,0x01
+right_overflow: cmp r1,0x00
+breq skip
+sub r1,0x01
+brn next
+skip: exor r2,0xff
+add r2,0x01
+mov r23,0x02
 brn next
 left_overflow: exor r1,0xff
 add r1,0x00
@@ -260,3 +277,8 @@ out r28,0x10
 out r29,0x11
 brn cross_finished
 
+determinant_done: mov r31,0x00
+add r31,r21
+st r28,(r31)
+add r31,0x01
+st r29,(r31)
