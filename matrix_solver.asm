@@ -64,227 +64,263 @@ st r12,0x0b
 ;r14, carry
 ;r30, button input
 
-init:     MOV r0, 0xF6
-		  ST r0, 0x28
-          MOV r0, 0xDE
-	      ST r0, 0x29
-          MOV r0, 0x49
-		  ST r0, 0x2A
-          MOV r0, 0x24
-		  ST r0, 0x2B
-          MOV r0, 0xE5
-		  ST r0, 0x2C
-          MOV r0, 0xCE
-		  ST r0, 0x2D		  
-          MOV r0, 0xE5
-		  ST r0, 0x2E
-          MOV r0, 0x9E
-		  ST r0, 0x2F
-          MOV r0, 0xB7
-		  ST r0, 0x30
-          MOV r0, 0x92
-		  ST r0, 0x31
-          MOV r0, 0xF3
-		  ST r0, 0x32
-          MOV r0, 0x9E
-		  ST r0, 0x33
-          MOV r0, 0xF3
-		  ST r0, 0x34
-          MOV r0, 0xDE
-		  ST r0, 0x35
-          MOV r0, 0xE5
-		  ST r0, 0x36
-          MOV r0, 0x24
-		  ST r0, 0x37
-          MOV r0, 0xF7
-		  ST r0, 0x38
-          MOV r0, 0xDE
-		  ST r0, 0x39
-          MOV r0, 0xF7
-		  ST r0, 0x3A
-          MOV r0, 0x92
-		  ST r0, 0x3B    
-		  MOV r0, 0x03
-          ST r0, 0x3C
-          MOV r0, 0x80
-          ST r0, 0x3D 
+init:     
+MOV r0, 0xF6 ;stores all of the hex codes associated with displaying numbers 
+ST r0, 0x28
+MOV r0, 0xDE
+ST r0, 0x29
+MOV r0, 0x49
+ST r0, 0x2A
+MOV r0, 0x24
+ST r0, 0x2B
+MOV r0, 0xE5
+ST r0, 0x2C
+MOV r0, 0xCE
+ST r0, 0x2D		  
+MOV r0, 0xE5
+ST r0, 0x2E
+MOV r0, 0x9E
+ST r0, 0x2F
+MOV r0, 0xB7
+ST r0, 0x30
+MOV r0, 0x92
+ST r0, 0x31
+MOV r0, 0xF3
+ST r0, 0x32
+MOV r0, 0x9E
+ST r0, 0x33
+MOV r0, 0xF3
+ST r0, 0x34
+MOV r0, 0xDE
+ST r0, 0x35
+MOV r0, 0xE5
+ST r0, 0x36
+MOV r0, 0x24
+ST r0, 0x37
+MOV r0, 0xF7
+ST r0, 0x38
+MOV r0, 0xDE
+ST r0, 0x39
+MOV r0, 0xF7
+ST r0, 0x3A
+MOV r0, 0x92
+ST r0, 0x3B    
+MOV r0, 0x03
+ST r0, 0x3C
+MOV r0, 0x80
+ST r0, 0x3D 
 
-          MOV r0, 0x00 
-          MOV r1, 0x00
-          MOV r2, 0x00
-          MOV r15, 0x1C ; intialize the orgin of the first col
-          MOV r16, 0x17 ; intialize the orgin of the first row
-		  MOV r5,0x00
-          SEI
+MOV r0, 0x00 
+MOV r1, 0x00
+MOV r2, 0x00
+MOV r15, 0x1C ; intialize the orgin of the first col
+MOV r16, 0x17 ; intialize the orgin of the first row
+MOV r5,0x00
+SEI
           
 set_n:    
-          CMP r30, 0x01
-          BRNE set_n  
-          IN r0, switches
-          MOV r3, r0
-		  ADD r3, 0x01
-          MOV r13, r0
-          SUB r13, 0x001
-          MOV r7, r0
-          MOV r20, 0x01
-          BRN get_10s
-clear_n:  MOV r15, 0x03
-          SUB r20, 0x01
-          MOV r5, 0x00
-          MOV r15, 0x03
-          MOV r16, 0x03
-          MOV r30, 0x00
-          BRN delay
+;takes in the dimension of the matrix
+CMP r30, 0x01 
+BRNE set_n  
+IN r0, switches
+MOV r3, r0
+ADD r3, 0x01
+MOV r13, r0
+SUB r13, 0x001
+MOV r7, r0
+MOV r20, 0x01
+BRN get_10s ; sends n value to decoder
+clear_n:  
+;prepares the registers to move into main
+MOV r15, 0x03 
+SUB r20, 0x01
+MOV r5, 0x00
+MOV r15, 0x03
+MOV r16, 0x03
+MOV r30, 0x00
+BRN delay
 
 
 
 main:     
-          CMP r2, r0
-          BREQ to_cramer
-          CMP r1, r3      ;check the number of input so far
-		  BREQ next_equation
-          CMP r30, 0x01
-          BRNE main
-		  IN r7,switches
-          MOV r18, 0x00
-          MOV r5, 0x00
-          BRN get_index
-store_in: ST r7, (r18)
-          MOV r30, 0x00
+CMP r2, r0       ;if true done with inputs
+BREQ to_cramer   
+CMP r1, r3      ;check the number of input so far
+BREQ next_equation ;moves to next equation
+CMP r30, 0x01
+BRNE main       ;loop until interrupt occurs
+IN r7,switches  ;takes input from switches
+MOV r18, 0x00
+MOV r5, 0x00
+BRN get_index
+store_in: 
+ST r7, (r18)
+MOV r30, 0x00
          				
-get_10s:  ADD r5, 0x01  ;counter for 10’s
-          SUB r7,0x0A
-          BRCC get_10s
-		  SUB r5,0x01
-          ADD r7,0x0A
-          MOV r6,r7
+get_10s: 
+ADD r5, 0x01  ;counter for 10’s
+SUB r7,0x0A
+BRCC get_10s
+SUB r5,0x01
+ADD r7,0x0A
+MOV r6,r7
 
-lut: 	  MOV r4, 0x28
-          MOV r7, 0x00
-	      CMP r5, 0x00
-		  BREQ done_10
-          MOV r5, 0x2A
-comp:     CMP r6, r7
-          BREQ done_1
-          ADD r7, 0x01
-          ADD r4, 0x02
-          BRN comp 
+lut: 	  ;sets the decimal values to their hex codes in memory
+MOV r4, 0x28 ;starts at code for zero
+MOV r7, 0x00
+CMP r5, 0x00 ;if the 10s place is a zero does not get a code
+BREQ done_10
+MOV r5, 0x2A
+comp:    
+CMP r6, r7   ;increments the codes by 2 spots until it is at the correct value
+BREQ done_1
+ADD r7, 0x01
+ADD r4, 0x02
+BRN comp 
 
-done_10:  ;MOV r5, r4
-          BRN comp
+done_10:  
+BRN comp
 
-done_1:    MOV r6, r4
-
-
-draw_num :
-		  MOV r4, 0x00
-          MOV r11, r15 
-set_row:  MOV r10, r16 
-          MOV r8, 0x08
-          MOV r9, 0x01
-          MOV r7, 0x00
-          CMP r5, 0x00
-          BREQ digit_2
+done_1:    
+MOV r6, r4
 
 
-reg_1:    LD r12,  (r5)
-		  BRN hi_lo
-reg_2:    ADD r5, 0x01
-          LD r12, (r5)
-		  MOV r8, 0x07
-          CMP r7, 0x01
-          BREQ done_i
-	 	  MOV r7, 0x01	
+draw_num :  ;initializes and clears registers to output to VGA
+MOV r4, 0x00
+MOV r11, r15 
+set_row:  
+MOV r10, r16 
+MOV r8, 0x08
+MOV r9, 0x01
+MOV r7, 0x00
+CMP r5, 0x00 ;if nothing is in the 10s digit moves directly to displaying the digit
+BREQ digit_2
 
-hi_lo:    SUB r8, 0x01
-          BRCS reg_2
-          LSL r12
-          MOV r14, 0x01
-		  BRCS high
-          BRCC low
-high:	  OUT r10, row
-		  OUT r11, col
-          OUT r14, color
-          BRN mov_col
 
-low: 	  MOV r14, 0x00 
-		  OUT r10, row
-		  OUT r11, col
-          OUT r14, color
+reg_1:    
+LD r12,  (r5) ;always uses r5 to get codes from
+BRN hi_lo   
+reg_2:    
+ADD r5, 0x01 ;gets the second half of the hex code from memory
+LD r12, (r5)
+MOV r8, 0x07  ;reloads counter for segments 8-15
+CMP r7, 0x01
+BREQ done_i
+MOV r7, 0x01	;sets flag for having been completed all of the hex code
+
+hi_lo:    
+SUB r8, 0x01   ;decrement segment counter
+BRCS reg_2     ;once done branch to get the second half of the code
+LSL r12        ; moves out one bit to toggle high or low
+MOV r14, 0x01   
+BRCS high
+BRCC low
+
+high:	  ;toggles high
+OUT r10, row
+OUT r11, col
+OUT r14, color
+BRN mov_col
+
+low: 	  ;toggles low
+MOV r14, 0x00 
+OUT r10, row
+OUT r11, col
+OUT r14, color
  
-mov_col:  ADD r9, 0x01
- 		  CMP r9, 0x04
-		  BREQ mov_row
-          ADD r11, 0x01
-          BRNE hi_lo
+mov_col:  ;increments col
+ADD r9, 0x01
+CMP r9, 0x04
+BREQ mov_row
+ADD r11, 0x01
+BRNE hi_lo
 
-mov_row:  SUB r11, 0x02
-          SUB r9, 0x03
-          ADD r10, 0x01
-          BRN hi_lo
+mov_row:  ;increments row
+SUB r11, 0x02
+SUB r9, 0x03
+ADD r10, 0x01
+BRN hi_lo
 
-done_i:     CMP r4, 0x00
-		  BREQ digit_2
-          ADD r11, 0x05
-		  MOV r15, r11
-          CMP r20, 0x01
-          BREQ clear_n
-          CMP r1, r13
-          BREQ sol_cord
-          ADD r1, 0x01
-          BRN delay
+done_i:     
+CMP r4, 0x00
+BREQ digit_2
+ADD r11, 0x05
+MOV r15, r11
+CMP r20, 0x01
+BREQ clear_n
+CMP r1, r13
+BREQ sol_cord
+ADD r1, 0x01
+BRN delay
 
-digit_2:  ADD r4, 0x01
-		  MOV r5, r6
-		  ADD r11, 0x04
-          BRN set_row
+digit_2:  
+ADD r4, 0x01
+MOV r5, r6
+ADD r11, 0x04
+BRN set_row
 
-sol_cord: MOV r15, 0x0C
-          MOV r16, 0x0A
-          ADD r1, 0x01
-          BRN delay
+sol_cord: 
+MOV r15, 0x0C
+MOV r16, 0x0A
+ADD r1, 0x01
+BRN delay
 
-get_index:   CMP r1, r0 ; checks to see if the current input is an answer
-             BREQ sqr_N 
-             BRNE mult_N
-fr_mult_N:   ADD r4, r1
-             ADD r18, r4
-             BRN store_in
-fr_sqr_N:    BRN check_mem
-fr_check_mem:BRN store_in
+get_index:   
+CMP r1, r0 ; checks to see if the current input is an answer
+BREQ sqr_N 
+BRNE mult_N
+
+fr_mult_N:   
+ADD r4, r1
+ADD r18, r4
+BRN store_in
+
+fr_sqr_N:
+BRN check_mem
+fr_check_mem:
+BRN store_in
              
-mult_N:      MOV r4, r2
-comp_mult:	 CMP r4, 0x00
-             BREQ fr_mult_N
-             ADD r18, r0
-             SUB r4, 0x01
-             BRN comp_mult
+mult_N:      
+MOV r4, r2
+comp_mult:	 
+CMP r4, 0x00
+BREQ fr_mult_N
+ADD r18, r0
+SUB r4, 0x01
+BRN comp_mult
              
-sqr_N:       MOV r4, r0
-comp_sqr:    CMP r4, 0x00
-			 BREQ fr_sqr_N
-			 ADD r18, r0
-             SUB r4, 0x01
-             BRN comp_sqr
+sqr_N:       
+MOV r4, r0
+comp_sqr:   
+CMP r4, 0x00
+BREQ fr_sqr_N
+ADD r18, r0
+SUB r4, 0x01
+BRN comp_sqr
 
-check_mem:   LD r30, (r18)
-             CMP r30, 0x00
-             BRNE inc_r19
-             BREQ fr_check_mem
+check_mem:   
+LD r30, (r18)
+CMP r30, 0x00
+BRNE inc_r19
+BREQ fr_check_mem
 
-inc_r19:     ADD r19, 0x01
-             ADD r18, 0x01
-             BRN check_mem 
+inc_r19:     
+ADD r19, 0x01
+ADD r18, 0x01
+BRN check_mem 
 
+next_equation:	
+ADD r2, 0x01		  
+MOV r1, 0x00
+BRN clear_screen
 
-next_equation:	ADD r2, 0x01		  
-                MOV r1, 0x00
-                BRN clear_screen
-reset_orgin:    MOV r15, 0x03
-                MOV r16, 0x03
-                BRN delay
+reset_orgin:    
+MOV r15, 0x03
+MOV r16, 0x03
+BRN delay
 
-to_cramer:     BRN cramer_subroutine_start
+to_cramer:     
+BRN cramer_subroutine_start
 
 
 clear_screen: 
