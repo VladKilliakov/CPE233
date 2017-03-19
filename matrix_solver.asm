@@ -17,11 +17,9 @@
 ;r11, col
 ;r12, register
 ;r14, carry
-;r21, button input
-
-init:     
+;r30, button input
+ 
 ;;;;;;;;;;;;;;;;;;;;;;;;;
-in r0,0x00
 mov r1,0x02
 mov r2,0x03
 mov r3,0x04
@@ -48,10 +46,25 @@ st r9,0x08
 st r10,0x09
 st r11,0x0a
 st r12,0x0b
-brn tester
 ;;;;;;;;;;;;;;;;;;;;;;;;;
 
-MOV r0, 0xF6
+;;;;;;;;;;;;;;;;;;;;;;;;;
+;GET THE INPUTS
+;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;r0, N of matrix
+;r1, Current number of inputs on a single equation
+;r2, Current equation (from 0 to N-1)
+;r3, N+1
+;r8, data counter
+;r9, col counter
+;r10, row
+;r11, col
+;r12, register
+;r14, carry
+;r30, button input
+
+init:     MOV r0, 0xF6
 		  ST r0, 0x28
           MOV r0, 0xDE
 	      ST r0, 0x29
@@ -91,6 +104,11 @@ MOV r0, 0xF6
 		  ST r0, 0x3A
           MOV r0, 0x92
 		  ST r0, 0x3B    
+		  MOV r0, 0x03
+          ST r0, 0x3C
+          MOV r0, 0x80
+          ST r0, 0x3D 
+
           MOV r0, 0x00 
           MOV r1, 0x00
           MOV r2, 0x00
@@ -100,7 +118,7 @@ MOV r0, 0xF6
           SEI
           
 set_n:    
-          CMP r21, 0x01
+          CMP r30, 0x01
           BRNE set_n  
           IN r0, switches
           MOV r3, r0
@@ -115,22 +133,24 @@ clear_n:  MOV r15, 0x03
           MOV r5, 0x00
           MOV r15, 0x03
           MOV r16, 0x03
-          MOV r21, 0x00
+          MOV r30, 0x00
           BRN delay
+
+
 
 main:     
           CMP r2, r0
           BREQ to_cramer
           CMP r1, r3      ;check the number of input so far
 		  BREQ next_equation
-          CMP r21, 0x01
+          CMP r30, 0x01
           BRNE main
 		  IN r7,switches
           MOV r18, 0x00
           MOV r5, 0x00
           BRN get_index
 store_in: ST r7, (r18)
-          MOV r21, 0x00
+          MOV r30, 0x00
          				
 get_10s:  ADD r5, 0x01  ;counter for 10’s
           SUB r7,0x0A
@@ -173,7 +193,7 @@ reg_2:    ADD r5, 0x01
           LD r12, (r5)
 		  MOV r8, 0x07
           CMP r7, 0x01
-          BREQ done2
+          BREQ done_i
 	 	  MOV r7, 0x01	
 
 hi_lo:    SUB r8, 0x01
@@ -203,7 +223,7 @@ mov_row:  SUB r11, 0x02
           ADD r10, 0x01
           BRN hi_lo
 
-done2:     CMP r4, 0x00
+done_i:     CMP r4, 0x00
 		  BREQ digit_2
           ADD r11, 0x05
 		  MOV r15, r11
@@ -247,8 +267,8 @@ comp_sqr:    CMP r4, 0x00
              SUB r4, 0x01
              BRN comp_sqr
 
-check_mem:   LD r21, (r18)
-             CMP r21, 0x00
+check_mem:   LD r30, (r18)
+             CMP r30, 0x00
              BRNE inc_r19
              BREQ fr_check_mem
 
@@ -268,13 +288,13 @@ to_cramer:     BRN cramer_subroutine_start
 
 
 clear_screen: 
-CMP r21, 0x01
+CMP r30, 0x01
 BRNE clear_screen
 
 MOV r14, 0x00
 MOV r15, 0x00
 MOV r16, 0x00
-MOV r21, 0x00
+MOV r30, 0x00
 
 clear_screen_cont:
 CMP r16, 0x1D
@@ -318,14 +338,16 @@ SEI
 BRN main
 
 ISR:
-MOV r21, 0x01
+MOV r30, 0x01
+mov r31, 0x01
 RETID
 
 ;==============================================================================
 ;================================== CRAMER SUBROUTINE =========================
 ;==============================================================================
 
-tester:
+tester: 
+mov r21,0x00
 mov r22,r0
 square2: add r21,r0 ;r21 stores the square of n
 sub r22,0x01
@@ -471,7 +493,7 @@ brn cramer_subroutine_start
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
-;MATRIX SOLVER
+;MATRIX CONSTRUCTOR
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -924,22 +946,57 @@ mov r30,r0
 add r30,0x01
 cmp r24,r30
 brne cramer_subroutine_start
-brn start_output
+SEI
 
 
 ;=================================================
 ;========= OUTPUT Subroutine =====================
 ;=================================================
-start_output:
+
+mov r1,0x00
+mov r2,0x00
+mov r3,0x00
+mov r4,0x00
+mov r5,0x00
+mov r6,0x00
+mov r7,0x00
+mov r8,0x00
+mov r9,0x00
+mov r10,0x00
+mov r11,0x00
+mov r12,0x00
+mov r13,0x00
+mov r14,0x00
+mov r15,0x00
+mov r16,0x00
+mov r17,0x00
+mov r18,0x00
+mov r19,0x00
+mov r20,0x00
+mov r22,0x00
+mov r23,0x00
+mov r24,0x00
+mov r25,0x00
+mov r26,0x00
+mov r27,0x00
+mov r28,0x00
+mov r29,0x00
+mov r30,0x00
+mov r31,0x00
+CLC
+wsp r31
+
+
 MOV r22, 0x00
 BRN starting address
 
 starting_address:
 MOV r6, r21
+add r6,r0
 BRN out_address
 
 out_address:
-CMP r22, 0x05
+CMP r24, 0x05
 BREQ output_delay
 CMP r3, 0x04
 BREQ reset_register_counter
@@ -968,6 +1025,7 @@ BRN inc_register_count
 
 is_int:
 ADD r3, 0x02
+sub r6,0x01
 BRN set_integer
 
 set_integer:
@@ -1087,8 +1145,8 @@ done_out:     CMP r4, 0x00
           CMP r4, 0x02
           BREQ digit_4
           ADD r22, 0x01
-          BRN out_address
-          ;BRN delay
+          BRN output_delay
+          
 
 next_digit_out: CMP r4, 0x00
             BREQ digit_2_out
@@ -1113,7 +1171,62 @@ digit_4:  ADD r4, 0x01
           ADD r18, 0x04
           BRN set_row1
 
-output_delay: BRN output_delay
+output_done: 
+cmp r31,0x01
+brne output_done
+cmp r24,r0
+breq done_final
+add r24,0x01
+mov r31,0x00
+brn CLEAR_SCREEN1
+
+output_delay: 
+MOV r22, 0xFF ;INNER LOOP COUNTER
+MOV r23, 0xAA ;OUTER LOOP COUNTER
+BRN dec_delay1
+
+dec_delay1:
+CMP r22, 0x00
+BREQ dec_loop_count1
+SUB r22, 0x01
+BRN dec_delay1
+
+dec_loop_count1:
+CMP r23, 0x00
+BREQ set_intr1
+SUB r23, 0x01
+MOV r22, 0xFF
+BRN dec_delay1
+
+set_intr1:
+SEI
+BRN output_done
+
+done_final: brn done_final
+
+
+clear_screen1: 
+mov r25,0x00
+mov r26,0x00
+mov r14,0x00
+clear_screen_cont1:
+CMP r26, 0x1D
+BREQ out_address
+CMP r25, 0x27
+BREQ row_down1
+ADD r25, 0x01
+BRN to_screen1
+
+row_down1:
+MOV r25, 0x00
+ADD r26, 0x01
+BRN to_screen1
+
+to_screen1: 
+OUT r26, row
+OUT r25, col
+OUT r14, color
+BRN clear_screen_cont1
 
 .CSEG
 .ORG 0x3FF  ;interrupt vector
